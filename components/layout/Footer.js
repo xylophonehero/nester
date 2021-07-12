@@ -7,7 +7,7 @@ import Button from "../general/Button"
 import Markdown from "../general/Markdown"
 import Link from "@/components/general/Link"
 
-const Column = tw.div`pl-6 border-white border-opacity-60 flex flex-col justify-center font-bold`
+const Column = tw.div`laptop:(pl-6) border-white border-opacity-60 flex flex-col justify-center font-bold`
 
 const Footer = () =>
 {
@@ -15,11 +15,12 @@ const Footer = () =>
     <div tw="bg-navy w-full py-20">
       <Container>
         <div tw="bg-navy max-width[1200px] mx-auto">
-          <div tw="flex divide-x space-x-6 ">
+          <div tw="flex flex-col space-y-8 laptop:(divide-x space-x-6 flex-row space-y-0) ">
             <div tw="flex-1">
               <StrapiImage image={footer.logo} />
               <FooterText tw="text-opacity-60 mt-8 text-14">{footer.description}</FooterText>
             </div>
+            <FooterText tw="laptop:hidden text-white text-opacity-60 mt-3.5 text-14">{footer.copywright}</FooterText>
             <Column >
 
               <FooterText tw="block w-full mb-4.5 uppercase ">{footer.menu_text}</FooterText>
@@ -31,11 +32,11 @@ const Footer = () =>
               </div>
             </Column>
             <Column>
-              <Button button={footer.join_button} />
+              <Button button={footer.join_button} fit tw="mx-auto" />
             </Column>
           </div>
-          <FooterText tw="mb-9 text-white text-opacity-60 mt-3.5 text-14">{footer.copywright}</FooterText>
-          <div tw="text-white font-bold text-14">
+          <FooterText tw="hidden laptop:block text-white text-opacity-60 mt-3.5 text-14">{footer.copywright}</FooterText>
+          <div tw="text-white font-bold text-14 mt-10">
             <Markdown text={footer.bottom_text} components={{ p: FooterText }} />
           </div>
         </div>

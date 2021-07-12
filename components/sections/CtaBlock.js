@@ -7,14 +7,14 @@ import StrapiImage from '../general/StrapiImage'
 import Button from "@/components/general/Button"
 
 
-const StyledP = tw.p`text-21 mb-4`
+const StyledP = tw.p`text-21 mb-8`
 
 const CtaBlock = ({ data }) =>
 {
   return (
     <div tw="bg-navy text-white">
       <Container>
-        <div tw="max-w-4xl mx-auto py-20">
+        <div tw="max-w-4xl mx-auto py-20 font-bold">
           <div tw="mb-8 flex justify-center"><StrapiImage image={data.image} /></div>
           <ReactMarkdown
             components={{
@@ -25,6 +25,7 @@ const CtaBlock = ({ data }) =>
               h4: H4,
               li: EggItem,
               p: StyledP,
+              ul: EggList,
             }}
           >
             {data.text}

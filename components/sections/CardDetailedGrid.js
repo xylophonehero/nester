@@ -7,7 +7,7 @@ const CardDetailedGrid = ({ data }) =>
 {
   return (
     <Container data={data} tw="max-w-7xl my-20">
-      <div tw="grid gap[30px] grid-cols-1 laptop:grid-cols-2 ">
+      <div tw="grid gap[30px] grid-cols-1 laptop:grid-cols-2 mt-8">
         {data.cards.map((card) => <CardDetailed card={card} key={card.id} />)}
       </div>
     </Container>

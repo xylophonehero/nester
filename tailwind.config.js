@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       heading: "ui-serif",
-      body: "ui-sans-serif",
+      body: "TTNorms, ui-sans-serif",
     },
     fontSize: {
       64: ["64px", "75.53px"],

@@ -11,7 +11,7 @@ const Wrapper = styled.div(({ layout }) => [
 ])
 
 const TextWrapper = styled.div(({ layout }) => [
-  tw`relative flex flex-col justify-center flex-1`,
+  tw`relative flex flex-col justify-center flex[2 1 0%]`,
   layout === "center" && tw`items-center text-center`
 ])
 
@@ -21,7 +21,8 @@ const BackgroundImage = styled(StrapiImage)(({ layoutStyle }) => [
 
 const Title = styled(H1)(({ layout }) => [
   tw`mb-8`,
-  layout === "center" && tw`text-purple`
+  layout === "center" && tw`text-purple`,
+  layout === "left_with_clip" && tw`max-width[18ch]`,
 ])
 
 const Hero = ({ data }) =>
@@ -32,7 +33,7 @@ const Hero = ({ data }) =>
       <TextWrapper layout={data.layout}>
         <Title layout={data.layout}>{data.title}</Title>
         {data.subtitle && data.subtitle_size === "display" && <Display tw="mb-8 max-width[24ch]">{data.subtitle}</Display>}
-        {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-8 max-width[60ch]">{data.subtitle}</H2>}
+        {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-8 max-width[40ch]">{data.subtitle}</H2>}
         {data.circle_figures.length > 0 && <CircleFigures figures={data.circle_figures} />}
         {data.description && <p tw="mb-8 max-width[60ch] text-18" dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
         {data.button_group.length > 0 && <div tw="flex flex-row space-x-4">

@@ -5,18 +5,20 @@ import { getId } from "utils/getId"
 import Link from "@/components/general/Link"
 import NextLink from "next/link"
 import Button from "@/components/general/Button"
+import { FaHamburger } from "react-icons/fa"
+import { BurgerMenu } from "assets/BurgerMenu"
 
 const Header = () =>
 {
   return (
-    <div tw="sticky top-0 flex px-30 items-center bg-purple height[60px] laptop:h-20 shadow-header z-30">
+    <div tw="sticky top-0 flex px-5 laptop:(px-30 h-20) items-center bg-purple height[60px] shadow-header z-30">
       <NextLink href="/">
         <a tw="width[140px] cursor-pointer">
           <StrapiImage image={header.logo} />
         </a>
       </NextLink>
       <div tw="flex-1" />
-      <nav tw="flex flex-row space-x-10 items-center">
+      <nav tw="hidden laptop:flex flex-row space-x-10 items-center">
         {header.menu.map((item) =>
         {
           switch (item.__component)
@@ -40,6 +42,9 @@ const Header = () =>
           }
         })}
       </nav>
+      <button tw="laptop:hidden text-white height[60px] width[60px] flex justify-center items-center ">
+        <BurgerMenu />
+      </button>
     </div>
   )
 }

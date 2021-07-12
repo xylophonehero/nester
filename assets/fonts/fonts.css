@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 700;
+  font-display: swap;
+  src: url("./TTNorms-Bold.woff2") format("woff2"), url("./TTNorms-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 500;
+  font-display: swap;
+  src: url("./TTNorms-Medium.woff2") format("woff2"), url("./TTNorms-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "TTNorms";
+  font-weight: 400;
+  font-display: swap;
+  src: url("./TTNorms-Regular.woff2") format("woff2"), url("./TTNorms-Regular.woff") format("woff");
+}

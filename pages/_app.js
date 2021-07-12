@@ -1,5 +1,5 @@
 import Layout from '../components/layout/Layout'
-// import '../styles/globals.css'
+import "../assets/fonts/fonts.css"
 import GlobalStyles from '@/components/layout/GlobalStyles'
 import "twin.macro"
 

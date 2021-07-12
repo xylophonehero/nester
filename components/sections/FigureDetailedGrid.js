@@ -7,15 +7,16 @@ import RoundPathFigures from '../misc/RoundPathFigures'
 import StraightPathFigures from '../misc/StraightPathFigures'
 import RiskCard from '../misc/RiskCard'
 import FigureCard from '../misc/FigureCard'
+import Carousel from '../misc/Carousel'
+import FlickityCarousel from "../misc/FlickityCarousel"
 
 const ComponentWrapper = styled.div(({ layout }) => [
-  tw`flex`,
-  layout === "row" && tw`flex py-16 space-x-16`,
-  layout === "risk_cards" && tw`flex py-16 space-x-8`,
-  layout === "column_card" && tw`flex-col items-center py-8 space-y-32`,
-  layout === "round_path" && tw`flex-col max-w-3xl mx-auto`,
-  layout === "straight_path" && tw`flex-col max-w-4xl mx-auto`,
-  layout === "card_row" && tw`max-w-4xl py-16 mx-auto space-x-8`,
+  layout === "row" && tw`hidden py-16 space-x-16 laptop:flex`,
+  layout === "risk_cards" && tw`hidden py-16 space-x-8 laptop:flex`,
+  layout === "column_card" && tw`flex-col items-center hidden py-8 space-y-32 laptop:flex`,
+  layout === "round_path" && tw`flex flex-col items-center max-w-3xl mx-auto space-y-12 laptop:space-y-0`,
+  layout === "straight_path" && tw`flex-col hidden max-w-4xl mx-auto laptop:flex`,
+  layout === "card_row" && tw`flex max-w-4xl py-16 mx-auto space-x-8`,
 ])
 
 
@@ -46,6 +47,7 @@ const FigureDetailedGrid = ({ data }) =>
           }
         })}
       </ComponentWrapper>
+      {["row", "risk_cards", "straight_path", "column_card"].includes(data.layout) && <FlickityCarousel items={data.figures} layout={data.layout} />}
     </Container>
   )
 }
