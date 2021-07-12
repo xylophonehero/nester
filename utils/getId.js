@@ -1,0 +1,1 @@
+export const getId = (item) => `${item.__component}=${item.id}`
