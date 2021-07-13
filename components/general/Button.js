@@ -21,12 +21,10 @@ const Button = ({ button, fit, ...rest }) =>
 {
   return (
     <Link link={button.link}>
-      <a>
-        <StyledButton {...rest} size={button.size || "medium"} color={button.color || "purple_white"} fit={fit}>
-          {button.icon === "play" && <FaPlay tw="mr-2" />}
-          {button.text}
-        </StyledButton>
-      </a>
+      <StyledButton {...rest} size={button.size || "medium"} color={button.color || "purple_white"} fit={fit}>
+        {button.icon === "play" && <FaPlay tw="mr-2" />}
+        {button.text}
+      </StyledButton>
     </Link>
   )
 }

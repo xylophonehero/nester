@@ -28,11 +28,9 @@ const Header = () =>
                 <p tw="text-white font-bold uppercase">{item.dropdown_text}</p>
               </div>
             case "atoms.text-link":
-              return <div key={getId(item)}>
+              return <div tw="text-white font-bold uppercase" key={getId(item)}>
                 <Link link={item.link}>
-                  <a tw="text-white font-bold uppercase">
-                    {item.text}
-                  </a>
+                  {item.text}
                 </Link>
               </div>
             case "atoms.button":

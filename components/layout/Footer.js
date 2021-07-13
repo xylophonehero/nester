@@ -27,7 +27,7 @@ const Footer = () =>
 
               <div tw="grid grid-cols-2 gap-2.5">
                 {footer.menu_links.map((item) => <Link key={item.id} link={item.link}>
-                  <FooterText as="a" tw="text-opacity-60 text-14">{item.text}</FooterText>
+                  <FooterText tw="text-opacity-60 text-14">{item.text}</FooterText>
                 </Link>)}
               </div>
             </Column>

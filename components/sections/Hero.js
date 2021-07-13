@@ -29,7 +29,7 @@ const Hero = ({ data }) =>
 {
   return (
     <Wrapper layout={data.layout}>
-      {data.background_image && <BackgroundImage layoutStyle={data.layout} image={data.background_image} layout="fill" objectFit="cover" objectPosition="left" />}
+      {data.background_image && <BackgroundImage layoutStyle={data.layout} image={data.background_image} layout="fill" objectFit="cover" objectPosition="center" />}
       <TextWrapper layout={data.layout}>
         <Title layout={data.layout}>{data.title}</Title>
         {data.subtitle && data.subtitle_size === "display" && <Display tw="mb-8 max-width[24ch]">{data.subtitle}</Display>}
