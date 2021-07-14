@@ -21,6 +21,7 @@ export async function getStaticPaths()
   {
     const res = await fetch("http://localhost:1337/pages")
     data = await res.json()
+    fs.writeFileSync("data/pages.json", JSON.stringify(data))
   } else
   {
     // const res = await fetch("https://raw.githubusercontent.com/xylophonehero/nestor-holdings/main/public/pages.json?token=AQOM4DWHRN2ZZSGLLLRKTH3A5NHRM")

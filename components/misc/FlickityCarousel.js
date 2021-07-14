@@ -6,6 +6,7 @@ import tw, { styled, css } from "twin.macro"
 import ColumnCard from './ColumnCard'
 import StraightPathFigures from './StraightPathFigures'
 import RiskCard from './RiskCard'
+import CircleFigure from './CircleFigure'
 
 const FlickityContainer = styled.div(({ layoutStyle }) => [
   tw`block pb-16 my-12 laptop:hidden`,
@@ -48,6 +49,11 @@ const FlickityCarousel = ({ items, layout }) =>
             case "risk_cards":
               return <div key={item.id} tw="w-full px-4">
                 <RiskCard card={item} index={index} />
+              </div>
+            case "circle_figures":
+              return <div key={item.id} tw="w-full px-4">
+                Hello
+                <CircleFigure figure={item} />
               </div>
             // case "risk_cards":
             //   return <RiskCard key={figure.id} card={figure} index={index} />

@@ -12,6 +12,7 @@ import FinanceCardGrid from "./sections/FinanceCardGrid"
 import Table from "./sections/Table"
 import CheckCardColumn from "./sections/CheckCardColumn"
 import PersonCarousel from "./sections/PersonCarousel"
+import Blog from "./sections/Blog"
 
 const DynamicComponent = ({ section }) =>
 {
@@ -43,6 +44,8 @@ const DynamicComponent = ({ section }) =>
       return <CheckCardColumn data={section} />
     case "section.person-carousel":
       return <PersonCarousel data={section} />
+    case "section.blog":
+      return <Blog data={section} />
     default:
       return <p>Could not find component for {section.__component}</p>
   }

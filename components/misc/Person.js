@@ -8,8 +8,9 @@ const Person = ({ person, open, setOpen, close }) =>
 {
   return (
     <div tw="width[320px] mx-16 relative height[1200px] laptop:height[900px]">
-      {open && <div tw="absolute mx-0 tablet:-mx-28 bg-gray-0 top[240px] px-8 shadow-light-card">
-        <p tw="mt-48 whitespace-pre-line mb-8 text-18">{person.bio}</p>
+      {open && <div tw="absolute -mx-5 tablet:w-auto tablet:-mx-28 bg-gray-0 top[240px] px-8 shadow-light-card">
+        <p tw="mt-48 whitespace-pre-line  text-18">{person.bio}</p>
+        <p tw="text-purple text-18 mb-8">Click here to read more</p>
       </div>}
       <div tw="relative pb-6 mb-8 px-6">
         <StrapiImage image={person.image} />
