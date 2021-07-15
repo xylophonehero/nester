@@ -11,7 +11,7 @@ import { BurgerMenu } from "assets/BurgerMenu"
 const Header = () =>
 {
   return (
-    <div tw="sticky top-0 flex px-5 laptop:(px-30 h-20) items-center bg-purple height[60px] shadow-header z-30">
+    <div tw="sticky top-0 flex px-5 laptop:(px-30 h-20) items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-30">
       <NextLink href="/">
         <a tw="width[140px] cursor-pointer">
           <StrapiImage image={header.logo} />
@@ -25,10 +25,10 @@ const Header = () =>
           {
             case "misc.dropdown":
               return <div key={getId(item)}>
-                <p tw="text-white font-bold uppercase">{item.dropdown_text}</p>
+                <p tw="text-white font-bold uppercase desktop:text-18 text-16">{item.dropdown_text}</p>
               </div>
             case "atoms.text-link":
-              return <div tw="text-white font-bold uppercase" key={getId(item)}>
+              return <div tw="text-white font-bold uppercase desktop:text-18 text-16" key={getId(item)}>
                 <Link link={item.link}>
                   {item.text}
                 </Link>

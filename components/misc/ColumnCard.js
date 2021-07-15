@@ -1,8 +1,9 @@
 import { ApprovalPurple } from "assets/ApprovalPurple"
+import { StraightPath } from "assets/StraightPath"
 import "twin.macro"
 import StrapiImage from "../general/StrapiImage"
 
-const ColumnCard = ({ card }) =>
+const ColumnCard = ({ card, first }) =>
 {
   return (
 
@@ -17,6 +18,9 @@ const ColumnCard = ({ card }) =>
       <div tw="hidden laptop:block absolute top-1/2 -left-32 -translate-y-1/2 transform">
         <ApprovalPurple />
       </div>
+      {!first && <div tw="absolute hidden laptop:block bottom-full left[-98px] ">
+        <StraightPath />
+      </div>}
     </div>
   )
 }

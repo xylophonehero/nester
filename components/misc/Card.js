@@ -8,7 +8,7 @@ const Card = ({ card }) =>
 {
   return (
     <Link link={card.link}>
-      <a tw="shadow-card hover:shadow-card-hover transition-shadow duration-300 rounded-3xl w-full flex flex-col items-center pt-16 pb-12 px-16">
+      <a tw="shadow-card hover:shadow-card-hover transition-shadow duration-300 rounded-3xl w-full flex flex-col items-center pt-16 pb-12 px-16 h-full">
         <div tw="mb-4">
           <StrapiImage image={card.image} />
         </div>

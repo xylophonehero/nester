@@ -9,7 +9,7 @@ import RiskCard from './RiskCard'
 import CircleFigure from './CircleFigure'
 
 const FlickityContainer = styled.div(({ layoutStyle }) => [
-  tw`block pb-16 my-12 laptop:hidden`,
+  tw`block w-full pb-16 my-12 laptop:hidden`,
   { ".flickity-page-dots": tw`-bottom-16` },
   { ".dot": tw`w-5 h-5 bg-gray-1` },
   layoutStyle === "straight_path" && { ".flickity-page-dots .is-selected": tw`bg-blue` },
@@ -52,7 +52,6 @@ const FlickityCarousel = ({ items, layout }) =>
               </div>
             case "circle_figures":
               return <div key={item.id} tw="w-full px-4">
-                Hello
                 <CircleFigure figure={item} />
               </div>
             // case "risk_cards":

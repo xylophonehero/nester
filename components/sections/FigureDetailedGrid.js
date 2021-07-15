@@ -14,7 +14,7 @@ const ComponentWrapper = styled.div(({ layout }) => [
   layout === "row" && tw`hidden py-16 space-x-16 laptop:flex`,
   layout === "risk_cards" && tw`hidden py-16 space-x-8 laptop:flex`,
   layout === "column_card" && tw`flex-col items-center hidden py-8 space-y-32 laptop:flex`,
-  layout === "round_path" && tw`flex flex-col items-center max-w-3xl mx-auto space-y-12 laptop:space-y-0`,
+  layout === "round_path" && tw`flex flex-col items-center max-w-3xl mx-auto space-y-12 laptop:-space-y-8`,
   layout === "straight_path" && tw`flex-col hidden max-w-4xl mx-auto laptop:flex`,
   layout === "card_row" && tw`flex max-w-4xl py-16 mx-auto space-x-8`,
 ])
@@ -34,7 +34,7 @@ const FigureDetailedGrid = ({ data }) =>
             case "card_row":
               return <FigureCard key={figure.id} figure={figure} />
             case "column_card":
-              return <ColumnCard key={figure.id} card={figure} />
+              return <ColumnCard key={figure.id} card={figure} first={index === 0} />
             case "round_path":
               return <RoundPathFigures key={figure.id} figure={figure} index={index} />
             case "straight_path":

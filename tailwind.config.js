@@ -10,6 +10,7 @@ module.exports = {
       64: ["64px", "75.53px"],
       48: ["48px", "56.65px"],
       36: ["36px", "42.49px"],
+      32: ["32px", "37.77px"],
       28: ["28px", "33.04px"],
       21: ["21px", "24.78px"],
       18: ["18px", "21.24px"],
@@ -20,7 +21,7 @@ module.exports = {
     screens: {
       tablet: "640px",
       laptop: "1024px",
-      desktop: "1280px",
+      desktop: "1366px",
     },
     extend: {
       borderRadius: {

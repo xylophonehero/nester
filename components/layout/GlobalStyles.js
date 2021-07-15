@@ -10,6 +10,9 @@ const CustomStyles = createGlobalStyle`
   .purple{
     ${tw`font-bold text-purple`}
   }
+  .blue{
+    ${tw`font-bold text-blue`}
+  }
   .bold{
     ${tw`font-bold`}
   }

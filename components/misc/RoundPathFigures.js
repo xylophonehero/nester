@@ -1,17 +1,26 @@
 import React from 'react'
 import StrapiImage from '../general/StrapiImage'
-import { H3 } from '../typography/Typography'
+import { Body, H3 } from '../typography/Typography'
 import "twin.macro"
+import { LeftToRightCurve } from 'assets/LeftToRightCurve'
+import { RightToLeftCurve } from 'assets/RightToLeftCurve'
 
 const RoundPathFigures = ({ figure, index }) =>
 {
   return (
-    <div tw="laptop:odd:self-start laptop:even:self-end width[350px]">
+    <div tw="laptop:odd:self-start laptop:even:self-end width[350px] relative">
       <StrapiImage image={figure.image} />
       <p tw="text-blue font-bold text-18">{`STEP ${index + 1}`}</p>
-      <H3>{figure.title}</H3>
-      <p tw="text-16 max-width[300px] text-gray-4">{figure.description}</p>
-    </div>
+      <H3 tw="desktop:text-28">{figure.title}</H3>
+      <Body tw="max-width[320px] text-gray-4">{figure.description}</Body>
+      {index % 2 === 0 &&
+        (index % 4 === 0 ?
+          <div tw="hidden laptop:block absolute left-full bottom-8"><LeftToRightCurve /></div>
+          :
+          <div tw="hidden laptop:block absolute left-full top-8"><RightToLeftCurve /></div>
+        )
+      }
+    </div >
   )
 }
 
