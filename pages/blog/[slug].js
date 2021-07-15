@@ -2,6 +2,7 @@ import Markdown from "@/components/general/Markdown"
 import StrapiImage from "@/components/general/StrapiImage"
 import { H1, H4 } from "@/components/typography/Typography"
 import fs from "fs"
+import blogs from "../../data/blogs.json"
 
 import "twin.macro"
 
@@ -41,7 +42,7 @@ export async function getStaticPaths()
     fs.writeFileSync("data/blogs.json", JSON.stringify(data))
   } else
   {
-    data = pages
+    data = blogs
   }
   const paths = data.map((blog) => ({ params: { slug: blog.slug } }))
   return {
@@ -60,7 +61,7 @@ export async function getStaticProps({ params })
     data = await res.json()
   } else
   {
-    data = pages.filter((page) => page.slug === slug)
+    data = blogs.filter((page) => page.slug === slug)
   }
   return {
     props: { data: data[0] }, // will be passed to the page component as props
