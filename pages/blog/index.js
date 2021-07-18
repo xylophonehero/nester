@@ -2,11 +2,8 @@ import DynamicComponent from "@/components/DynamicComponent"
 
 const BlogIndex = ({ data, allBlogs }) =>
 {
-  return (
-    <div>
-      {data.sections.map((section) => <DynamicComponent section={section} key={section.__component + section.id} />)}
-    </div>
-  )
+  return data.sections.map((section, index) => <DynamicComponent section={section} key={section.__component + section.id} sectionId={`section-${index}`} />)
+
 }
 
 export default BlogIndex

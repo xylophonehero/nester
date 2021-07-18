@@ -10,7 +10,7 @@ export const H3 = tw.h3`text-18 tablet:text-21 desktop:text-28  font-bold mb-3`
 export const H4 = tw.h4`text-16 tablet:text-18 desktop:text-21  font-bold mb-4.5 uppercase`
 export const Body = tw.p`text-16 tablet:text-18 desktop:text-21`
 export const P = tw.p`text-18`
-export const UL = tw.ul`space-y-2 list-disc pl-6`
+export const UL = tw.ul`space-y-6 list-disc pl-6`
 export const LI = tw.li`text-18`
 export const A = tw.a`text-blue hover:text-blue-1`
 // export const H2 = ({ children }) => <h2 tw="text-21 tablet:text-28 laptop:text-36 font-heading font-bold">{children}</h2>
@@ -20,8 +20,8 @@ export const FooterText = tw.p`text-12 tablet:text-14 laptop:text-16 text-white 
 
 
 export const EggList = tw.ul`list-inside`
-export const EggItem = ({ children, color = "purple", ...rest }) => <li tw="text-21 font-bold flex flex-row items-center mb-4"{...rest}>
-  <div tw="flex-shrink-0 mr-2 mt-2">
+export const EggItem = ({ children, color = "purple", ...rest }) => <li tw="text-16 tablet:text-21 font-bold flex flex-row items-start mb-6"{...rest}>
+  <div tw="flex-shrink-0 mr-2">
     {color.includes("blue") ? <EggBlue /> : <EggPurple />}
   </div>
   {children}

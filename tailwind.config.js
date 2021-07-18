@@ -33,6 +33,7 @@ module.exports = {
           DEFAULT: "#8000FF",
           1: "#6A01D1",
           2: "#9933FF",
+          shade: "#e5e5ff",
         },
         blue: {
           DEFAULT: "#00D2FF",
@@ -70,6 +71,9 @@ module.exports = {
         4.5: "18px",
         5.25: "21px",
         30: "120px",
+      },
+      transitionProperty: {
+        'max-height': 'max-height',
       },
       width: {
         fit: "fit-content",

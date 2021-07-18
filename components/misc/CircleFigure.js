@@ -12,7 +12,7 @@ const CircleFigure = ({ figure }) =>
           </H2>
         </div>
       </div>
-      <H4 as="p">{figure.description}</H4>
+      <H4 as="p" tw="mb-0">{figure.description}</H4>
     </div>
   )
 }

@@ -5,7 +5,7 @@ import { convertBrackets } from "utils/convertBrackets"
 const RiskCard = ({ card, index }) =>
 {
   return (
-    <div tw="border-2 border-color[#D3CFDA] rounded-lg px-12 py-16 flex-1 flex flex-col max-width[320px] mx-auto">
+    <div tw="border-2 border-color[#D3CFDA] rounded-lg px-12 py-16 flex-1 flex flex-col max-width[320px] mx-auto laptop:mx-0">
       <h3 tw="text-36 text-purple mb-2 font-bold">{card.title}</h3>
       <p tw="text-18 text-navy" dangerouslySetInnerHTML={{ __html: convertBrackets(card.description) }} />
       <div tw="flex space-x-6 mt-8 w-full items-end flex-1">

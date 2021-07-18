@@ -5,11 +5,15 @@ import { getId } from "utils/getId"
 import Link from "@/components/general/Link"
 import NextLink from "next/link"
 import Button from "@/components/general/Button"
-import { FaHamburger } from "react-icons/fa"
+import { FaChevronDown } from "react-icons/fa"
 import { BurgerMenu } from "assets/BurgerMenu"
+import { useState } from "react"
+import MobileMenu from "./MobileMenu"
 
 const Header = () =>
 {
+
+
   return (
     <div tw="sticky top-0 flex px-5 laptop:(px-30 h-20) items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-30">
       <NextLink href="/">
@@ -18,31 +22,39 @@ const Header = () =>
         </a>
       </NextLink>
       <div tw="flex-1" />
-      <nav tw="hidden laptop:flex flex-row space-x-10 items-center">
+      <nav tw="hidden laptop:flex flex-row items-center h-full">
         {header.menu.map((item) =>
         {
           switch (item.__component)
           {
             case "misc.dropdown":
-              return <div key={getId(item)}>
-                <p tw="text-white font-bold uppercase desktop:text-18 text-16">{item.dropdown_text}</p>
+              return <div className="group" tw="px-5 h-full flex items-center relative" key={getId(item)}>
+                <p tw="text-white font-bold uppercase desktop:text-18 text-16 flex">
+                  {item.dropdown_text} <span tw="ml-2"><FaChevronDown /></span>
+                </p>
+                <div tw="absolute top-full right-0 hidden pt-2 group-hocus:block">
+                  <ul tw="shadow-light-card bg-white rounded text-center p-5 font-bold space-y-5">
+                    {item.links.map((link) => <li tw="text-black uppercase" key={getId(link)}>
+                      <Link link={link.link}>{link.text}</Link>
+                    </li>)}
+                  </ul>
+                </div>
               </div>
             case "atoms.text-link":
-              return <div tw="text-white font-bold uppercase desktop:text-18 text-16" key={getId(item)}>
+              return <div tw="text-white font-bold uppercase desktop:text-18 text-16 px-5" key={getId(item)}>
                 <Link link={item.link}>
                   {item.text}
                 </Link>
               </div>
             case "atoms.button":
-              return <Button key={getId(item)} button={{ ...item }} tw="px-16" />
+              return <Button key={getId(item)} button={{ ...item }} size="tiny" tw="px-16" />
             default:
               return null
           }
         })}
       </nav>
-      <button tw="laptop:hidden text-white height[60px] width[60px] flex justify-center items-center ">
-        <BurgerMenu />
-      </button>
+
+      <MobileMenu />
     </div>
   )
 }

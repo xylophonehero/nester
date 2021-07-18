@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Flickity from "react-flickity-component"
 import tw, { styled, theme } from "twin.macro"
 import Container from "../general/Container"
@@ -10,14 +10,21 @@ const Wrapper = styled.div({
 })
 
 
-const PersonCarousel = ({ data }) =>
+const PersonCarousel = ({ data, sectionId }) =>
 {
   const [openIndex, setOpenIndex] = useState(-1)
+  const flickityRef = useRef()
+
+  useEffect(() =>
+  {
+    flickityRef.current.flkty.on("change", () => setOpenIndex(-1))
+  }, [])
+
   return (
-    <Container data={data} tw="my-16" removeMargin>
+    <Container data={data} tw="my-16 max-width[1366px]" removeMargin sectionId={sectionId}>
       <Wrapper tw="my-12 relative">
         <Flickity
-
+          ref={flickityRef}
           options={{
             draggable: false,
             pageDots: false,
@@ -34,7 +41,8 @@ const PersonCarousel = ({ data }) =>
             close={() => setOpenIndex(-1)}
           />)}
         </Flickity>
-        <div tw="absolute right-0 top-0 bottom-0 w-1/6 bg-gradient-to-r to-white from-transparent z-10 hidden tablet:block" />
+        <div tw="absolute left-0 top-0 bottom-0 w-1/6 laptop:w-1/12 desktop:w-1/6 bg-gradient-to-r from-white z-10 hidden tablet:block" />
+        <div tw="absolute right-0 top-0 bottom-0 w-1/6 laptop:w-1/12 desktop:w-1/6 bg-gradient-to-l from-white z-10 hidden tablet:block" />
       </Wrapper>
     </Container>
   )

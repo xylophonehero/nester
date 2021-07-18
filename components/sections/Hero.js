@@ -6,40 +6,54 @@ import { convertBrackets } from "utils/convertBrackets"
 import { BsChevronCompactDown } from "react-icons/bs"
 import CircleFigures from "../misc/CircleFigures"
 
-const Wrapper = styled.div(({ layout }) => [
-  tw`w-full px-4 tablet:px-6 laptop:px-32 flex flex-row justify-center py-32 relative h-screen max-height[calc(100vh - 60px)] desktop:max-height[calc(100vh - 80px)]`,
+const Wrapper = styled.section(({ layout }) => [
+  tw`w-full flex flex-col justify-end laptop:(flex-row justify-center)  relative  min-height[calc(100vh - 60px)] desktop:max-height[calc(100vh - 80px)]`,
 ])
 
 const TextWrapper = styled.div(({ layout }) => [
-  tw`relative flex flex-col justify-center text-center flex[2 1 0%]`,
-  layout === "center" && tw`items-center`,
-  layout === "left_with_clip" && tw`items-center tablet:(text-left items-start)`
+  tw`relative flex flex-col justify-center px-5 desktop:px-36`,
+  layout === "center" && tw`items-center flex-1 text-center`,
+  layout === "left_with_clip" && tw`justify-end items-center pb-14 bg-white to-white-60 tablet:(px-30 flex[2 1 0%] text-left items-start justify-center bg-transparent)`
 ])
 
-const BackgroundImage = styled(StrapiImage)(({ layoutStyle }) => [
-  layoutStyle === "center" && tw`opacity-40`,
+const BackgroundImage = styled.div(({ layout }) => [
+  tw`absolute inset-0`,
+  layout === "center" && tw`opacity-40`,
+  layout === "left_with_clip" && tw`max-height[60vh] -mt-12 tablet:(max-height[100vh] mt-0)`
 ])
 
 const Title = styled(H1)(({ layout }) => [
   tw`mb-8`,
   layout === "center" && tw`text-purple`,
-  layout === "left_with_clip" && tw`max-width[18ch]`,
+  layout === "left_with_clip" && tw`tablet:max-width[18ch]`,
 ])
 
-const Hero = ({ data }) =>
+const ButtonGroup = styled.div(({ layout }) => [
+  tw`w-full flex flex-col space-y-4 items-stretch tablet:(flex-row space-x-4 space-y-0 justify-center)`,
+  layout === "left_with_clip" && tw`tablet:justify-start`
+])
+
+const Fade = styled.div(({ layout }) => [
+  layout === "left_with_clip" && tw`relative flex-shrink-0 block w-full h-32 mt-32 bg-gradient-to-t from-white tablet:hidden`
+])
+
+const Hero = ({ data, sectionId }) =>
 {
   return (
-    <Wrapper layout={data.layout}>
-      {data.background_image && <BackgroundImage layoutStyle={data.layout} image={data.background_image} layout="fill" objectFit="cover" objectPosition="center" />}
+    <Wrapper id={sectionId} layout={data.layout}>
+      {data.background_image && <BackgroundImage layout={data.layout}  >
+        <StrapiImage image={data.background_image} layout="fill" objectFit="cover" objectPosition="center" />
+      </BackgroundImage>}
+      <Fade layout={data.layout} />
       <TextWrapper layout={data.layout}>
         <Title layout={data.layout}>{data.title}</Title>
-        {data.subtitle && data.subtitle_size === "display" && <Display tw="mb-8 max-width[24ch]">{data.subtitle}</Display>}
-        {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-8 max-width[40ch]">{data.subtitle}</H2>}
+        {data.subtitle && data.subtitle_size === "display" && <Display tw="mb-7 max-width[24ch]">{data.subtitle}</Display>}
+        {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-7 max-width[40ch]">{data.subtitle}</H2>}
         {data.circle_figures.length > 0 && <CircleFigures figures={data.circle_figures} />}
-        {data.description && <p tw="mb-8 max-width[60ch] text-18" dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
-        {data.button_group.length > 0 && <div tw="flex flex-col space-y-4 items-center tablet:(flex-row space-x-4 space-y-0)">
-          {data.button_group.map((button) => <Button key={button.id} button={button} fit />)}
-        </div>}
+        {data.description && <p tw="mb-7 tablet:max-width[60ch] text-16 laptop:text-18" dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
+        {data.button_group.length > 0 && <ButtonGroup layout={data.layout}>
+          {data.button_group.map((button) => <Button tw="w-full tablet:w-fit " key={button.id} button={button} />)}
+        </ButtonGroup>}
       </TextWrapper>
       {data.arrow_text && <div tw="absolute bottom-8 w-full flex flex-col items-center">
         <H4 as="p">{data.arrow_text}</H4>

@@ -16,6 +16,9 @@ const CustomStyles = createGlobalStyle`
   .bold{
     ${tw`font-bold`}
   }
+  button{
+    ${tw`focus:outline-none focus-visible:outline-black`}
+  }
 `
 
 const GlobalStyles = () => (

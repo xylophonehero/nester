@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import tw, { styled } from "twin.macro"
 import Container from "../general/Container"
 import AccordianItem from "../general/AccordianItem"
@@ -9,19 +9,27 @@ const Tab = styled.button(({ isActiveTab }) => [
   isActiveTab && tw`text-purple after:(content absolute -bottom-1.5 w-full h-2 rounded-full bg-purple left-0)`
 ])
 
-const TabbedAccordian = ({ data }) =>
+const TabbedAccordian = ({ data, sectionId }) =>
 {
   const [tabIndex, setTabIndex] = useState(0)
+  const [accordianIndex, setAccordianIndex] = useState(-1)
+
+  useEffect(() =>
+  {
+    setAccordianIndex(-1)
+  }, [tabIndex])
+
   return (
-    <Container tw="max-w-4xl py-32">
+    <Container tw="max-w-4xl py-32" sectionId={sectionId}>
       <Tabs tabs={data.tabs} tabIndex={tabIndex} setTabIndex={setTabIndex} />
-      {/* <div tw="flex border-b-2 border-color[#A5A9B9]">
-        {data.tabs.map((tab, index) => <Tab key={tab.id} isActiveTab={tabIndex === index} onClick={() => setTabIndex(index)}>
-          {tab.tab}
-        </Tab>)}
-      </div> */}
       <div tw="space-y-8">
-        {data.tabs[tabIndex].items.map((item) => <AccordianItem key={item.id} item={item} />)}
+        {data.tabs[tabIndex].items.map((item, index) => <AccordianItem
+          key={item.id}
+          item={item}
+          isOpen={accordianIndex === index}
+          open={() => setAccordianIndex(index)}
+          close={() => setAccordianIndex(-1)}
+        />)}
       </div>
     </Container>
   )

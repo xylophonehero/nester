@@ -5,8 +5,8 @@ const Link = ({ children, link, ...rest }) =>
 {
   if (!link) return <p>No link found</p>
   if (link.type === "internal") return (
-    <NextLink href={link.url} {...rest}>
-      <a>{children}</a>
+    <NextLink href={link.url}>
+      <a  {...rest}>{children}</a>
     </NextLink>
   )
   if (link.type === "external") return (

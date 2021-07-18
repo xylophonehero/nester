@@ -8,9 +8,9 @@ import { RightToLeftCurve } from 'assets/RightToLeftCurve'
 const RoundPathFigures = ({ figure, index }) =>
 {
   return (
-    <div tw="laptop:odd:self-start laptop:even:self-end width[350px] relative">
+    <div tw="laptop:odd:self-start laptop:even:self-end w-full max-width[350px] relative">
       <StrapiImage image={figure.image} />
-      <p tw="text-blue font-bold text-18">{`STEP ${index + 1}`}</p>
+      <p tw="text-blue font-bold text-18 mb-2">{`STEP ${index + 1}`}</p>
       <H3 tw="desktop:text-28">{figure.title}</H3>
       <Body tw="max-width[320px] text-gray-4">{figure.description}</Body>
       {index % 2 === 0 &&
