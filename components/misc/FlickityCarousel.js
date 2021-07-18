@@ -13,11 +13,11 @@ import CardDetailed from './CardDetailed'
 
 const FlickityContainer = styled.div(({ layoutStyle }) => [
   tw`block w-full pb-16 mt-16 laptop:hidden`,
-  { ".flickity-page-dots": tw`-bottom-16` },
+  { ".flickity-page-dots": tw`-bottom-12` },
   { ".dot": tw`w-5 h-5 bg-gray-2` },
   layoutStyle === "straight_path" && { ".flickity-page-dots .is-selected": tw`bg-blue` },
   layoutStyle !== "straight_path" && { ".flickity-page-dots .is-selected": tw`bg-purple` },
-  layoutStyle === "circle_figures" && tw`mb-16`
+  layoutStyle === "circle_figures" && tw`mb-12`
 ])
 
 const FlickityCarousel = ({ items, layout }) =>

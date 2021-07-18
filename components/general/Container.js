@@ -21,7 +21,7 @@ const Container = ({ children, removeMargin, data = {}, sectionId, ...rest }) =>
         {data.subtitle && <H2 as="p" tw="desktop:text-28 text-center text-gray-2 whitespace-pre-line mb-4" dangerouslySetInnerHTML={{ __html: convertBrackets(data.subtitle) }} />}
         {data.description && <Body tw="text-center mx-auto text-gray-4 laptop:whitespace-pre-line" dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
         {children}
-        {data.button && <Button button={data.button} tw="mx-0 laptop:(w-fit mx-auto)" />}
+        {data.button && <Button button={data.button} tw="mx-0 laptop:(w-fit mx-auto) mt-8" />}
       </div>
     </Wrapper>
   )
