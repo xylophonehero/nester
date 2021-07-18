@@ -1,4 +1,5 @@
 import DynamicComponent from "@/components/DynamicComponent"
+import pages from "../../data/pages.json"
 
 const BlogIndex = ({ data }) =>
 {
