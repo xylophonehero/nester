@@ -1,1 +1,98 @@
-{"id":1,"published_at":"2021-07-10T08:11:18.341Z","created_at":"2021-07-10T08:04:45.341Z","updated_at":"2021-07-11T09:47:04.600Z","menu":[{"__component":"misc.dropdown","id":1,"dropdown_text":"About us","links":[{"id":3,"text":"Who we are","link":{"id":4,"url":"/who-we-are","page":null,"email":null,"type":"internal"}},{"id":4,"text":"FAQs","link":{"id":5,"url":"/faqs","page":null,"email":null,"type":"internal"}}]},{"__component":"atoms.text-link","id":1,"text":"Invest","link":{"id":3,"url":"/invest","page":null,"email":null,"type":"internal"}},{"__component":"atoms.text-link","id":2,"text":"Request finance","link":{"id":2,"url":"/request","page":null,"email":null,"type":"internal"}},{"__component":"atoms.button","id":5,"text":"Sign up / login","color":"blue_navy","size":"tiny","icon":null,"link":{"id":6,"url":"https://example.com","page":null,"email":null,"type":"external"}}],"logo":{"id":7,"name":"logo-main 1.png","alternativeText":"","caption":"","width":140,"height":32,"formats":{},"hash":"logo_main_1_122034e414","ext":".png","mime":"image/png","size":3.17,"url":"https://res.cloudinary.com/db7psaqjv/image/upload/v1626030864/nestor/logo_main_1_122034e414.png","previewUrl":null,"provider":"cloudinary","provider_metadata":{"public_id":"nestor/logo_main_1_122034e414","resource_type":"image"},"created_at":"2021-07-10T08:06:11.052Z","updated_at":"2021-07-11T19:14:25.319Z"}}
+{
+  "id": 1,
+  "published_at": "2021-07-10T08:11:18.341Z",
+  "created_at": "2021-07-10T08:04:45.341Z",
+  "updated_at": "2021-07-20T17:10:12.090Z",
+  "menu": [
+    {
+      "__component": "misc.dropdown",
+      "id": 1,
+      "dropdown_text": "About us",
+      "links": [
+        {
+          "id": 3,
+          "text": "Who we are",
+          "link": {
+            "id": 4,
+            "url": "/who-we-are",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        },
+        {
+          "id": 4,
+          "text": "FAQs",
+          "link": {
+            "id": 5,
+            "url": "/faqs",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        }
+      ]
+    },
+    {
+      "__component": "atoms.text-link",
+      "id": 1,
+      "text": "Invest",
+      "link": {
+        "id": 3,
+        "url": "/invest",
+        "page": null,
+        "email": null,
+        "type": "internal"
+      }
+    },
+    {
+      "__component": "atoms.text-link",
+      "id": 2,
+      "text": "Request finance",
+      "link": {
+        "id": 2,
+        "url": "/request",
+        "page": null,
+        "email": null,
+        "type": "internal"
+      }
+    },
+    {
+      "__component": "atoms.button",
+      "id": 5,
+      "text": "Sign up / login",
+      "color": "blue_navy",
+      "size": "tiny",
+      "icon": null,
+      "link": {
+        "id": 6,
+        "url": "/login",
+        "page": null,
+        "email": null,
+        "type": "internal"
+      }
+    }
+  ],
+  "logo": {
+    "id": 7,
+    "name": "logo-main 1.png",
+    "alternativeText": "",
+    "caption": "",
+    "width": 140,
+    "height": 32,
+    "formats": {},
+    "hash": "logo_main_1_122034e414",
+    "ext": ".png",
+    "mime": "image/png",
+    "size": 3.17,
+    "url": "https://res.cloudinary.com/db7psaqjv/image/upload/v1626030864/nestor/logo_main_1_122034e414.png",
+    "previewUrl": null,
+    "provider": "cloudinary",
+    "provider_metadata": {
+      "public_id": "nestor/logo_main_1_122034e414",
+      "resource_type": "image"
+    },
+    "created_at": "2021-07-10T08:06:11.052Z",
+    "updated_at": "2021-07-11T19:14:25.319Z"
+  }
+}

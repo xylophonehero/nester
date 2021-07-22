@@ -9,10 +9,16 @@ import { FaChevronDown } from "react-icons/fa"
 import { BurgerMenu } from "assets/BurgerMenu"
 import { useState } from "react"
 import MobileMenu from "./MobileMenu"
+import { useUserContext } from "context/UserContext"
 
 const Header = () =>
 {
-
+  const handleClick = () =>
+  {
+    const win = document.getElementById("ifr").contentWindow
+    win.postMessage("getUser", "http://localhost:3000")
+  }
+  const { user } = useUserContext()
 
   return (
     <div tw="sticky top-0 flex px-5 laptop:(px-30 h-20) items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-30">
@@ -22,6 +28,7 @@ const Header = () =>
         </a>
       </NextLink>
       <div tw="flex-1" />
+      <button onClick={handleClick}>Test</button>
       <nav tw="hidden laptop:flex flex-row items-center h-full">
         {header.menu.map((item) =>
         {
@@ -47,7 +54,10 @@ const Header = () =>
                 </Link>
               </div>
             case "atoms.button":
-              return <Button key={getId(item)} button={{ ...item }} size="tiny" tw="px-16" />
+              if (!user) return <Button key={getId(item)} button={{ ...item }} size="tiny" tw="px-16" />
+              return <p key={getId(item)}>
+                An {JSON.parse(user).type} is logged in
+              </p>
             default:
               return null
           }
