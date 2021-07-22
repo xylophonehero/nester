@@ -23,13 +23,12 @@ const userLinks = [
 
 const Header = () =>
 {
-  const handleClick = () =>
-  {
-    const win = document.getElementById("ifr").contentWindow
-    win.postMessage("getUser", "http://localhost:3000")
-  }
+  // const handleClick = () =>
+  // {
+  //   const win = document.getElementById("ifr").contentWindow
+  //   win.postMessage("getUser", "http://localhost:3000")
+  // }
   const { user } = useUserContext()
-  console.log({ user })
   return (
     <div tw="sticky top-0 flex px-5 laptop:(px-20 h-20) desktop:px-30 items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-30">
       <NextLink href="/">

@@ -17,16 +17,6 @@ const Home = ({ data }) =>
 
 export default Home
 
-const embedSlugs = [
-  "login",
-  "dashboard",
-  "opps",
-  "profile",
-  "transactions",
-  "changepassword",
-  "financings",
-]
-
 export async function getStaticPaths()
 {
   let data
