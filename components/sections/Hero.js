@@ -13,28 +13,31 @@ const Wrapper = styled.section(({ layout }) => [
 const TextWrapper = styled.div(({ layout }) => [
   tw`relative flex flex-col justify-center px-5 desktop:px-36`,
   layout === "center" && tw`items-center flex-1 text-center`,
-  layout === "left_with_clip" && tw`justify-end items-center pb-14 bg-white to-white-60 tablet:(px-30 flex[2 1 0%] text-left items-start justify-center bg-transparent)`
+  layout === "left_with_clip" && tw`justify-end items-center pb-14 bg-white to-white-60 laptop:(px-30 flex[2 1 0%] text-left items-start justify-center bg-transparent)`
 ])
 
 const BackgroundImage = styled.div(({ layout }) => [
   tw`absolute inset-0`,
   layout === "center" && tw`opacity-40`,
-  layout === "left_with_clip" && tw`max-height[60vh] -mt-12 tablet:(max-height[100vh] mt-0)`
+  layout === "left_with_clip" && tw`max-height[60vh] -mt-12 laptop:(max-height[100vh] mt-0)`,
+  {
+    "img": layout === "center" ? tw`object-center` : tw`object-position[90%] laptop:object-position[24%]`
+  },
 ])
 
 const Title = styled(H1)(({ layout }) => [
   tw`mb-8`,
   layout === "center" && tw`text-purple`,
-  layout === "left_with_clip" && tw`tablet:max-width[18ch]`,
+  layout === "left_with_clip" && tw`laptop:max-width[18ch] text-32 tablet:text-48 desktop:text-64`,
 ])
 
 const ButtonGroup = styled.div(({ layout }) => [
-  tw`w-full flex flex-col space-y-4 items-stretch tablet:(flex-row space-x-4 space-y-0 justify-center)`,
-  layout === "left_with_clip" && tw`tablet:justify-start`
+  tw`w-full flex flex-col space-y-4 items-stretch laptop:(flex-row space-x-4 space-y-0 justify-center)`,
+  layout === "left_with_clip" && tw`laptop:justify-start`
 ])
 
 const Fade = styled.div(({ layout }) => [
-  layout === "left_with_clip" && tw`relative flex-shrink-0 block w-full h-32 mt-32 bg-gradient-to-t from-white tablet:hidden`
+  layout === "left_with_clip" && tw`relative flex-shrink-0 block w-full h-32 mt-32 bg-gradient-to-t from-white laptop:hidden`
 ])
 
 const Hero = ({ data, sectionId }) =>
@@ -42,24 +45,27 @@ const Hero = ({ data, sectionId }) =>
   return (
     <Wrapper id={sectionId} layout={data.layout}>
       {data.background_image && <BackgroundImage layout={data.layout}  >
-        <StrapiImage image={data.background_image} layout="fill" objectFit="cover" objectPosition="center" />
+        <StrapiImage image={data.background_image} layout="fill" objectFit="cover" />
+        <div tw="absolute bottom-0 w-full">
+          <Fade layout={data.layout} />
+        </div>
       </BackgroundImage>}
       <Fade layout={data.layout} />
       <TextWrapper layout={data.layout}>
         <Title layout={data.layout}>{data.title}</Title>
         {data.subtitle && data.subtitle_size === "display" && <Display tw="mb-7 max-width[24ch]">{data.subtitle}</Display>}
-        {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-7 max-width[40ch]">{data.subtitle}</H2>}
+        {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-7 max-width[40ch] ">{data.subtitle}</H2>}
         {data.circle_figures.length > 0 && <CircleFigures figures={data.circle_figures} />}
-        {data.description && <p tw="mb-7 tablet:max-width[60ch] text-16 laptop:text-18" dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
+        {data.description && <p tw="mb-7 laptop:max-width[40ch] text-16 laptop:text-18 desktop:(font-bold text-28 max-width[30ch])" dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
         {data.button_group.length > 0 && <ButtonGroup layout={data.layout}>
-          {data.button_group.map((button) => <Button tw="w-full tablet:w-fit " key={button.id} button={button} />)}
+          {data.button_group.map((button) => <Button tw="w-full laptop:w-fit " key={button.id} button={button} />)}
         </ButtonGroup>}
       </TextWrapper>
       {data.arrow_text && <div tw="absolute bottom-8 w-full flex flex-col items-center">
         <H4 as="p">{data.arrow_text}</H4>
         <BsChevronCompactDown tw="text-28" />
       </div>}
-      {data.layout === "left_with_clip" && <div tw="laptop:flex-1" />}
+      {/* {data.layout === "left_with_clip" && <div tw="laptop:flex-1" />} */}
     </Wrapper>
   )
 }

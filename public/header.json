@@ -2,12 +2,13 @@
   "id": 1,
   "published_at": "2021-07-10T08:11:18.341Z",
   "created_at": "2021-07-10T08:04:45.341Z",
-  "updated_at": "2021-07-20T17:10:12.090Z",
+  "updated_at": "2021-07-22T18:52:54.431Z",
   "menu": [
     {
       "__component": "misc.dropdown",
       "id": 1,
       "dropdown_text": "About us",
+      "types_allowed": "All",
       "links": [
         {
           "id": 3,
@@ -34,28 +35,94 @@
       ]
     },
     {
-      "__component": "atoms.text-link",
-      "id": 1,
-      "text": "Invest",
-      "link": {
-        "id": 3,
-        "url": "/invest",
-        "page": null,
-        "email": null,
-        "type": "internal"
-      }
+      "__component": "misc.dropdown",
+      "id": 2,
+      "dropdown_text": "Invest",
+      "types_allowed": "Investor",
+      "links": [
+        {
+          "id": 14,
+          "text": "Learn more",
+          "link": {
+            "id": 44,
+            "url": "/invest",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        },
+        {
+          "id": 13,
+          "text": "Invest",
+          "link": {
+            "id": 43,
+            "url": "/opps",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        }
+      ]
     },
     {
-      "__component": "atoms.text-link",
-      "id": 2,
-      "text": "Request finance",
-      "link": {
-        "id": 2,
-        "url": "/request",
-        "page": null,
-        "email": null,
-        "type": "internal"
-      }
+      "__component": "misc.dropdown",
+      "id": 3,
+      "dropdown_text": "Request finance",
+      "types_allowed": "Borrower",
+      "links": [
+        {
+          "id": 15,
+          "text": "Learn more",
+          "link": {
+            "id": 45,
+            "url": "/request",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        },
+        {
+          "id": 16,
+          "text": "Request now",
+          "link": {
+            "id": 46,
+            "url": "/financings",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        }
+      ]
+    },
+    {
+      "__component": "misc.dropdown",
+      "id": 4,
+      "dropdown_text": "Broker portal",
+      "types_allowed": "Basic",
+      "links": [
+        {
+          "id": 18,
+          "text": "Learn more",
+          "link": {
+            "id": 48,
+            "url": "/broker",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        },
+        {
+          "id": 17,
+          "text": "Broker's portal",
+          "link": {
+            "id": 47,
+            "url": "/regintroducer",
+            "page": null,
+            "email": null,
+            "type": "internal"
+          }
+        }
+      ]
     },
     {
       "__component": "atoms.button",

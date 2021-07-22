@@ -12,7 +12,8 @@ const useShareCookies = () =>
     if (event.origin === PERMITTED_DOMAIN)
     {
       console.log("message recieved from React ")
-      setUserRef.current(event.data)
+      const user = JSON.parse(event.data)
+      setUserRef.current(user)
     }
   }
   useEffect(() =>

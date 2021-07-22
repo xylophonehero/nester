@@ -6,7 +6,7 @@ const CardDetailedGrid = ({ data }) =>
 {
   return (
     <Container data={data} tw="max-w-7xl my-20">
-      <div tw="flex space-x-8 mt-8">
+      <div tw="flex mt-8">
         {data.cards.map((card) => <CardDetailed card={card} key={card.id} />)}
       </div>
     </Container>

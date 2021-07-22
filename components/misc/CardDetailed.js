@@ -6,7 +6,7 @@ import "twin.macro"
 const CardDetailed = ({ card }) =>
 {
   return (
-    <div tw="mx-auto max-width[585px] my-2 shadow-card h-full  pt-16 pb-10 laptop:pb-16 px-4 tablet:px-8 rounded-3xl tablet:text-center">
+    <div tw="mx-auto max-width[585px] my-2 shadow-card h-full  pt-16 pb-10 laptop:(pb-16 mx-0 flex-1) px-4 tablet:px-8 rounded-3xl tablet:text-center">
       <H1 as="h3" tw="text-center">{card.title}</H1>
       <H4 tw="normal-case">{card.subtitle}</H4>
 

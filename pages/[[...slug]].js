@@ -2,32 +2,50 @@ import DynamicComponent from "../components/DynamicComponent"
 import fs from "fs"
 import pages from "../data/pages.json"
 
+const REACT_APP = "http://localhost:3000/"
+
 const Home = ({ data }) =>
 {
-  return data.sections.map((section, index) => <DynamicComponent section={section} key={section.__component + section.id} sectionId={`section-${index}`} />)
+  if (data.is_embed) return <iframe id="embed" src={`${REACT_APP}${data.slug}`} tw="w-full height[100vh]" />
+  return data.sections.map((section, index) => <DynamicComponent
+    section={section}
+    key={section.__component + section.id}
+    sectionId={`section-${index}`}
+  />)
 
 }
 
 export default Home
 
+const embedSlugs = [
+  "login",
+  "dashboard",
+  "opps",
+  "profile",
+  "transactions",
+  "changepassword",
+  "financings",
+]
 
 export async function getStaticPaths()
 {
   let data
-  if (process.env.NODE_ENV === "development")
+  if (process.env.FORCE_LOCAL === "true")
   {
+    // Get data from local file
+    data = pages
+  } else
+  {
+    // Get data from Strapi
     const res = await fetch("http://localhost:1337/pages")
     data = await res.json()
     fs.writeFileSync("data/pages.json", JSON.stringify(data))
-  } else
-  {
-    // const res = await fetch("https://raw.githubusercontent.com/xylophonehero/nestor-holdings/main/public/pages.json?token=AQOM4DWHRN2ZZSGLLLRKTH3A5NHRM")
-    data = pages
   }
   const paths = data.filter((page) => page.slug !== "blog")
     .map((page) => ({ params: { slug: page.slug === "home" ? [] : [page.slug] } }))
+
   return {
-    paths: paths,
+    paths,
     fallback: false
   }
 }
@@ -36,10 +54,9 @@ export async function getStaticProps({ params })
 {
   let data
   const slug = params?.slug ? params.slug[0] : "home"
-  if (process.env.NODE_ENV === "development")
+  if (process.env.FORCE_LOCAL === "true")
   {
-    const res = await fetch(`http://localhost:1337/pages/?slug=${slug}`)
-    data = await res.json()
+    data = pages.filter((page) => page.slug === slug)
     // const resHeader = await fetch("http://localhost:1337/header")
     // const header = await resHeader.json()
     // fs.writeFileSync("public/header.json", JSON.stringify(header))
@@ -48,8 +65,8 @@ export async function getStaticProps({ params })
     // fs.writeFileSync("public/footer.json", JSON.stringify(footer))
   } else
   {
-    // const res = await fetch("https://raw.githubusercontent.com/xylophonehero/nestor-holdings/main/public/pages.json?token=AQOM4DWHRN2ZZSGLLLRKTH3A5NHRM")
-    data = pages.filter((page) => page.slug === slug)
+    const res = await fetch(`http://localhost:1337/pages/?slug=${slug}`)
+    data = await res.json()
   }
   return {
     props: { data: data[0] }, // will be passed to the page component as props

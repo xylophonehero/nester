@@ -35,14 +35,14 @@ export default Blog
 export async function getStaticPaths()
 {
   let data
-  if (process.env.NODE_ENV === "development")
+  if (process.env.FORCE_LOCAL === "true")
+  {
+    data = blogs
+  } else
   {
     const res = await fetch("http://localhost:1337/blogs")
     data = await res.json()
     fs.writeFileSync("data/blogs.json", JSON.stringify(data))
-  } else
-  {
-    data = blogs
   }
   const paths = data.map((blog) => ({ params: { slug: blog.slug } }))
   return {

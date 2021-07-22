@@ -20,7 +20,7 @@ const ComponentWrapper = styled.div(({ layout }) => [
   layout === "round_path" && tw`flex flex-col items-center max-w-3xl mx-auto space-y-12 laptop:-space-y-8`,
   layout === "straight_path" && tw`flex-col hidden max-w-4xl mx-auto laptop:flex`,
   layout === "link_cards" && tw`laptop:(grid gap[30px] grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3) hidden`,
-  layout === "card_detailed" && tw`hidden laptop:(flex space-x-30) `,
+  layout === "card_detailed" && tw`hidden laptop:(flex space-x-8) justify-center`,
 ])
 
 

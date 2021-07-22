@@ -5,11 +5,6 @@ const UserContext = createContext(null)
 const UserContextProvider = ({ children }) =>
 {
   const [user, setUser] = useState(null)
-  // useEffect(() =>
-  // {
-  //   const win = document.getElementById("ifr").contentWindow
-  //   win.postMessage("hello", "http://localhost:3000")
-  // }, [])
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

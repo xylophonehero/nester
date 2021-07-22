@@ -12,7 +12,8 @@ const Column = tw.div`laptop:(pl-6) border-white border-opacity-60 flex flex-col
 const Footer = () =>
 {
   return (
-    <div tw="bg-navy w-full py-20">
+
+    <div tw="bg-navy w-full pt-20 pb-36">
       <Container>
         <div tw="bg-navy max-width[1200px] mx-auto">
           <div tw="flex flex-col space-y-8 laptop:(divide-x space-x-6 flex-row space-y-0) ">
@@ -36,11 +37,13 @@ const Footer = () =>
             </Column>
           </div>
           <FooterText tw="hidden laptop:block text-white text-opacity-60 mt-3.5 text-14">{footer.copywright}</FooterText>
-          <div tw="text-white font-bold text-14 mt-10">
-            <Markdown text={footer.bottom_text} components={{ p: FooterText }} />
-          </div>
         </div>
       </Container>
+      <div tw="fixed bottom-0 bg-navy bg-opacity-80 w-full">
+        <div tw="text-white font-bold text-14 py-2  w-full max-width[1200px] mx-auto">
+          <Markdown text={footer.bottom_text} components={{ p: FooterText }} />
+        </div>
+      </div>
     </div>
   )
 }

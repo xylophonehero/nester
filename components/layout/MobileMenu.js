@@ -14,12 +14,13 @@ const Wrapper = styled.div(({ open }) => [
 ])
 
 const TextWrapper = styled.div(({ open }) => [
-  tw`flex flex-col items-center justify-center h-full font-bold text-white uppercase transition-opacity duration-500 space-y-11 desktop:text-18 text-16`,
+  // space-y-11?
+  tw`flex flex-col items-center justify-center h-full space-y-6 font-bold text-white uppercase transition-opacity duration-500 desktop:text-18 text-16`,
   open && tw`opacity-100`,
   !open && tw`opacity-0`,
 ])
 
-const MobileMenu = ({ open, close }) =>
+const MobileMenu = () =>
 {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -36,9 +37,9 @@ const MobileMenu = ({ open, close }) =>
             {
               case "misc.dropdown":
                 return <Fragment key={getId(item)}>
-                  {/* <p tw="flex">
-                  {item.dropdown_text} <span tw="ml-2"><FaChevronDown /></span>
-                </p> */}
+                  <p tw="flex">
+                    {item.dropdown_text} <span tw="ml-2"><FaChevronDown /></span>
+                  </p>
 
                   {item.links.map((link) => <p tw="" key={getId(link)}>
                     <Link link={link.link} onClick={() => setMobileMenuOpen(false)} >
