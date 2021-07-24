@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '../general/Button'
-import { EggItem, EggList, H1, H4 } from '../typography/Typography'
+import { Button } from '@/components/general'
+import { EggItem, EggList, H1, H4 } from '@/components/typography'
 import "twin.macro"
 
 const CardDetailed = ({ card }) =>

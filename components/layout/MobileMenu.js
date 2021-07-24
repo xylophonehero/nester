@@ -1,11 +1,10 @@
-import Link from "@/components/general/Link"
-import { BurgerMenu } from "assets/BurgerMenu"
+import { Button, Link } from "@/components/general"
+import { BurgerMenu } from "assets"
 import { Fragment, useState } from "react"
 import { FaChevronDown } from "react-icons/fa"
 import tw, { styled } from "twin.macro"
-import { getId } from "utils/getId"
-import header from "../../public/header.json"
-import Button from "../general/Button"
+import { getId } from "utils"
+import header from "data/header.json"
 
 const Wrapper = styled.div(({ open }) => [
   tw`fixed inset-x-0 overflow-hidden top[60px] bg-purple h-full transition-max-height duration-500`,
@@ -26,7 +25,7 @@ const MobileMenu = () =>
 
   return (
     <>
-      <button tw="laptop:hidden text-white height[60px] width[60px] flex justify-center items-center" onClick={() => setMobileMenuOpen((prev) => !prev)} >
+      <button tw="desktop:hidden text-white height[60px] width[60px] flex justify-center items-center" onClick={() => setMobileMenuOpen((prev) => !prev)} >
         <BurgerMenu />
       </button>
       <Wrapper open={mobileMenuOpen}>

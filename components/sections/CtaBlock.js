@@ -1,11 +1,9 @@
 /* eslint-disable react/display-name */
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import { EggItem, EggList, H1, H2, H3, H4 } from '../typography/Typography'
-import Container from '../general/Container'
+import { EggItem, EggList, H1, H3, H4 } from '@/components/typography'
+import { Container, StrapiImage } from '@/components/general'
 import tw from 'twin.macro'
-import StrapiImage from '../general/StrapiImage'
-import Button from "@/components/general/Button"
 
 
 const StyledP = tw.p`text-16 tablet:text-21 mb-8`

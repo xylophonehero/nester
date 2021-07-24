@@ -1,21 +1,15 @@
 /* eslint-disable react/display-name */
-import { ApprovalBlue } from "assets/ApprovalBlue"
-import { LongStraightPath } from "assets/LongStraightPath"
+import { ApprovalBlue, LongStraightPath } from "assets"
 import { BsChevronRight } from "react-icons/bs"
 import "twin.macro"
-import Link from "../general/Link"
-import Markdown from "../general/Markdown"
-import StrapiImage from "../general/StrapiImage"
-import { H3 } from "../typography/Typography"
+import { Link, Markdown, StrapiImage } from "@/components/general"
+import { H3 } from "@/components/typography"
 
 const CheckCard = ({ card, first }) =>
 {
   return (
 
     <div tw="flex w-full justify-center ">
-      {/* <div tw="hidden laptop:block absolute top-1/2 -left-32 desktop:-left-48 -translate-y-1/2 transform">
-        <ApprovalBlue />
-      </div> */}
       <div tw="hidden laptop:flex items-center flex-1 w-full relative">
         {!first && <div tw="absolute bottom[calc(70%)] left[42px] ">
           <LongStraightPath />

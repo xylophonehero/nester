@@ -1,6 +1,6 @@
 import "twin.macro"
-import StrapiImage from '../general/StrapiImage'
-import { Display, H3 } from "../typography/Typography"
+import { StrapiImage } from '@/components/general'
+import { Display, H3 } from "@/components/typography"
 
 const FinanceCard = ({ card }) =>
 {

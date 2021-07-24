@@ -1,10 +1,9 @@
 import tw, { styled } from "twin.macro"
-import { Display, H1, H2, H4 } from "@/components/typography/Typography"
-import Button from "../general/Button"
-import StrapiImage from "../general/StrapiImage"
-import { convertBrackets } from "utils/convertBrackets"
+import { Display, H1, H2, H4 } from "@/components/typography"
+import { Button, StrapiImage } from "@/components/general"
+import { convertBrackets } from "utils"
 import { BsChevronCompactDown } from "react-icons/bs"
-import CircleFigures from "../misc/CircleFigures"
+import { CircleFigures } from "@/components/misc"
 
 const Wrapper = styled.section(({ layout }) => [
   tw`w-full flex flex-col justify-end laptop:(flex-row justify-center)  relative  min-height[calc(100vh - 60px)] desktop:max-height[calc(100vh - 80px)]`,
@@ -29,6 +28,12 @@ const Title = styled(H1)(({ layout }) => [
   tw`mb-8`,
   layout === "center" && tw`text-purple`,
   layout === "left_with_clip" && tw`laptop:max-width[18ch] text-32 tablet:text-48 desktop:text-64`,
+])
+
+const Description = styled.p(({ layout }) => [
+  tw`mb-7 text-16 tablet:text-18 `,
+  layout === "left_with_clip" && tw`laptop:(text-18 max-width[40ch]) desktop:(font-bold text-28 max-width[30ch])`,
+  layout === "center" && tw`tablet:whitespace-pre-line laptop:(text-21 max-width[60ch])`,
 ])
 
 const ButtonGroup = styled.div(({ layout }) => [
@@ -56,7 +61,7 @@ const Hero = ({ data, sectionId }) =>
         {data.subtitle && data.subtitle_size === "display" && <Display tw="mb-7 max-width[24ch]">{data.subtitle}</Display>}
         {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-7 max-width[40ch] ">{data.subtitle}</H2>}
         {data.circle_figures.length > 0 && <CircleFigures figures={data.circle_figures} />}
-        {data.description && <p tw="mb-7 laptop:max-width[40ch] text-16 laptop:text-18 desktop:(font-bold text-28 max-width[30ch])" dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
+        {data.description && <Description layout={data.layout} dangerouslySetInnerHTML={{ __html: convertBrackets(data.description) }} />}
         {data.button_group.length > 0 && <ButtonGroup layout={data.layout}>
           {data.button_group.map((button) => <Button tw="w-full laptop:w-fit " key={button.id} button={button} />)}
         </ButtonGroup>}

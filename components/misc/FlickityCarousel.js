@@ -1,15 +1,19 @@
 import React from 'react'
 import Flickity from "react-flickity-component"
 import "flickity/css/flickity.css"
-import FigureDetailed from './FigureDetailed'
-import tw, { styled, css } from "twin.macro"
-import ColumnCard from './ColumnCard'
-import StraightPathFigures from './StraightPathFigures'
-import RiskCard from './RiskCard'
-import CircleFigure from './CircleFigure'
-import FigureCard from './FigureCard'
-import Card from './Card'
-import CardDetailed from './CardDetailed'
+import
+{
+  FigureDetailed,
+  ColumnCard,
+  StraightPathFigures,
+  RiskCard,
+  CircleFigure,
+  FigureCard,
+  Card,
+  CardDetailed,
+} from "@/components/misc"
+import tw, { styled } from "twin.macro"
+
 
 const FlickityContainer = styled.div(({ layoutStyle }) => [
   tw`block w-full pb-16 mt-16 laptop:hidden`,

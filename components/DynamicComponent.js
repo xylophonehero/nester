@@ -1,18 +1,19 @@
-
-import FigureGrid from "@/components/sections/FigureGrid"
-import Hero from "@/components/sections/Hero"
-import ImageText from "@/components/sections/ImageText"
-import CardGrid from "@/components/sections/CardGrid"
-import CtaBlock from "@/components/sections/CtaBlock"
-// import CardDetailedGrid from "@/components/sections/CardDetailedGrid"
-import FigureDetailedGrid from "@/components/sections/FigureDetailedGrid"
-import TabbedAccordian from "./sections/TabbedAccordian"
-import BlockQuote from "./sections/BlockQuote"
-import FinanceCardGrid from "./sections/FinanceCardGrid"
-import Table from "./sections/Table"
-import CheckCardColumn from "./sections/CheckCardColumn"
-import PersonCarousel from "./sections/PersonCarousel"
-import Blog from "./sections/Blog"
+import
+{
+  BlockQuote,
+  Blog,
+  CardGrid,
+  CheckCardColumn,
+  CtaBlock,
+  FigureDetailedGrid,
+  FigureGrid,
+  FinanceCardGrid,
+  Hero,
+  ImageText,
+  PersonCarousel,
+  TabbedAccordian,
+  Table,
+} from "@/components/sections"
 
 const DynamicComponent = ({ section, sectionId }) =>
 {

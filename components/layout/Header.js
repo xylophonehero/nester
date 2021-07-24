@@ -1,16 +1,11 @@
 import "twin.macro"
-import StrapiImage from "@/components/general/StrapiImage"
-import header from "../../public/header.json"
-import { getId } from "utils/getId"
-import Link from "@/components/general/Link"
+import { StrapiImage, Link, Button } from "@/components/general"
+import header from "data/header.json"
+import { getId } from "utils"
 import NextLink from "next/link"
-import Button from "@/components/general/Button"
 import { FaChevronDown, FaUserAlt } from "react-icons/fa"
-// import { BurgerMenu } from "assets/BurgerMenu"
-import { useState } from "react"
-import MobileMenu from "./MobileMenu"
-import { useUserContext } from "context/UserContext"
-import DropdownMenu from "./DropdownMenu"
+import { MobileMenu, DropdownMenu } from "@/components/layout"
+import { useUserContext } from "context"
 
 const userLinks = [
   { text: "Dashboard", link: { type: "internal", url: "/dashboard" }, showFor: "Investor,Borrower" },
@@ -18,27 +13,20 @@ const userLinks = [
   { text: "My transactions", link: { type: "internal", url: "/transactions" }, showFor: "Investor" },
   { text: "Financings", link: { type: "internal", url: "/financings" }, showFor: "Borrower" },
   { text: "Change password", link: { type: "internal", url: "/changepassword" }, showFor: "Investor,Borrower,Basic" },
-  { text: "Logout", link: { type: "internal", url: "/" }, showFor: "Investor,Borrower,Basic" },
 ]
 
 const Header = () =>
 {
-  // const handleClick = () =>
-  // {
-  //   const win = document.getElementById("ifr").contentWindow
-  //   win.postMessage("getUser", "http://localhost:3000")
-  // }
   const { user } = useUserContext()
   return (
-    <div tw="sticky top-0 flex px-5 laptop:(px-20 h-20) desktop:px-30 items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-30">
+    <div tw="sticky top-0 flex px-5 laptop:(px-20 h-20) desktop:px-24 items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-30">
       <NextLink href="/">
         <a tw="width[140px] cursor-pointer">
           <StrapiImage image={header.logo} />
         </a>
       </NextLink>
       <div tw="flex-1" />
-      {/* <button onClick={handleClick}>Test</button> */}
-      <nav tw="hidden laptop:flex flex-row items-center h-full">
+      <nav tw="hidden desktop:flex flex-row items-center h-full">
         {header.menu.map((item) =>
         {
           switch (item.__component)
@@ -67,7 +55,7 @@ const Header = () =>
           <p tw="text-white font-bold uppercase desktop:text-18 text-16 flex">
             <FaUserAlt />
           </p>
-          <DropdownMenu links={userLinks} />
+          <DropdownMenu links={userLinks} showLogout />
         </div>}
       </nav>
 

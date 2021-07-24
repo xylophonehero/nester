@@ -1,5 +1,5 @@
 import React from 'react'
-import StrapiImage from "@/components/general/StrapiImage"
+import { StrapiImage } from "@/components/general"
 import "twin.macro"
 
 const FigureCard = ({ figure }) =>

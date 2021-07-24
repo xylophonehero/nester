@@ -1,6 +1,6 @@
 import "twin.macro"
-import StrapiImage from "../general/StrapiImage"
-import { H4 } from "../typography/Typography"
+import { StrapiImage } from "@/components/general"
+import { H4 } from "@/components/typography"
 
 const FigureDetailed = ({ figure }) =>
 {

@@ -1,9 +1,8 @@
 import React from 'react'
-import StrapiImage from '../general/StrapiImage'
-import { H3 } from '../typography/Typography'
+import { StrapiImage } from '@/components/general'
+import { H3 } from '@/components/typography'
 import tw, { styled } from "twin.macro"
-import { LeftToRightLine } from 'assets/LeftToRightLine'
-import { RightToLeftLine } from 'assets/RightToLeftLine'
+import { LeftToRightLine, RightToLeftLine } from 'assets'
 
 const Title = styled(H3)(({ backgroundColor }) => [
   tw`laptop:whitespace-pre-line`,

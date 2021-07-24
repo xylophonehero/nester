@@ -1,5 +1,5 @@
 import "twin.macro"
-import Container from "../general/Container"
+import { Container } from "@/components/general"
 
 const BlockQuote = ({ data, sectionId }) =>
 {

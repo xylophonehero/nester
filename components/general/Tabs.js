@@ -19,19 +19,19 @@ const Tabs = ({ tabs, tabIndex, setTabIndex }) =>
     <>
       <div tw="hidden laptop:flex border-b-2 border-color[#A5A9B9] max-w-5xl mx-auto mb-12">
         {tabs.map((tab, index) => <Tab key={tab.id} isActiveTab={tabIndex === index} onClick={() => setTabIndex(index)}>
-          {tab.tab}
+          {tab.name || tab.tag.name}
         </Tab>)}
       </div>
       <div tw="laptop:hidden relative z-10 ">
         <Menu>
           <Menu.Button tw="bg-gray-0 flex items-center justify-between px-10 rounded-3.5xl py-7 w-full mb-12">
-            <span tw="font-bold text-purple text-16 uppercase">{tabs[tabIndex].tab}</span>
+            <span tw="font-bold text-purple text-16 uppercase">{tabs[tabIndex].name}</span>
             <BsChevronDown tw="text-21" />
           </Menu.Button>
           <Menu.Items tw="absolute top-full w-full shadow-light-card bg-white text-purple font-bold mt-2 rounded-2xl overflow-hidden uppercase">
             {tabs.map((tab, index) => <Menu.Item key={tab.id}>
               {({ active }) => <MenuItem active={active} onClick={() => setTabIndex(index)}>
-                {tab.tab}
+                {tab.tag.name}
               </MenuItem>}
             </Menu.Item>)}
           </Menu.Items>

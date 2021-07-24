@@ -1,9 +1,8 @@
 import React from 'react'
-import StrapiImage from '../general/StrapiImage'
-import { Body, H3 } from '../typography/Typography'
+import { StrapiImage } from '@/components/general'
+import { Body, H3 } from '@/components/typography'
 import "twin.macro"
-import { LeftToRightCurve } from 'assets/LeftToRightCurve'
-import { RightToLeftCurve } from 'assets/RightToLeftCurve'
+import { LeftToRightCurve, RightToLeftCurve } from 'assets'
 
 const RoundPathFigures = ({ figure, index }) =>
 {

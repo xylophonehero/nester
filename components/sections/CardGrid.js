@@ -1,7 +1,6 @@
-import React from 'react'
 import "twin.macro"
-import Container from '../general/Container'
-import Card from "@/components/misc/Card"
+import { Container } from '@/components/general'
+import { Card } from "@/components/misc"
 
 const CardGrid = ({ data, sectionId }) =>
 {

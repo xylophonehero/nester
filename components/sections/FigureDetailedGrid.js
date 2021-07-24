@@ -1,16 +1,18 @@
 import React from 'react'
-import Container from '../general/Container'
+import { Container } from '@/components/general'
 import tw, { styled } from "twin.macro"
-import FigureDetailed from '../misc/FigureDetailed'
-import ColumnCard from '../misc/ColumnCard'
-import RoundPathFigures from '../misc/RoundPathFigures'
-import StraightPathFigures from '../misc/StraightPathFigures'
-import RiskCard from '../misc/RiskCard'
-import FigureCard from '../misc/FigureCard'
-import Carousel from '../misc/Carousel'
-import FlickityCarousel from "../misc/FlickityCarousel"
-import Card from '../misc/Card'
-import CardDetailed from '../misc/CardDetailed'
+import
+{
+  FigureDetailed,
+  ColumnCard,
+  RoundPathFigures,
+  StraightPathFigures,
+  RiskCard,
+  FigureCard,
+  FlickityCarousel,
+  Card,
+  CardDetailed,
+} from '@/components/misc'
 
 const ComponentWrapper = styled.div(({ layout }) => [
   layout === "row" && tw`hidden py-16 laptop:(flex justify-center space-x-32)`,

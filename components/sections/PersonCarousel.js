@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import Flickity from "react-flickity-component"
-import tw, { styled, theme } from "twin.macro"
-import Container from "../general/Container"
-import Person from "../misc/Person"
+import tw, { styled } from "twin.macro"
+import { Container } from "@/components/general"
+import { Person } from "@/components/misc"
 
 const Wrapper = styled.div({
   ...tw`my-12`,

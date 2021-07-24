@@ -1,6 +1,6 @@
 import "twin.macro"
-import Container from '../general/Container'
-import CheckCard from "../misc/CheckCard"
+import { Container } from '@/components/general'
+import { CheckCard } from "@/components/misc"
 
 const CheckCardColumn = ({ data, sectionId }) =>
 {

@@ -1,7 +1,5 @@
-import React from 'react'
-import Container from '../general/Container'
-import Figure from '../misc/Figure'
-import { H1 } from '../typography/Typography'
+import { Container } from '@/components/general'
+import { Figure } from '@/components/misc'
 import "twin.macro"
 
 const FigureGrid = ({ data, sectionId }) =>

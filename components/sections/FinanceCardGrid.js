@@ -1,6 +1,6 @@
 import "twin.macro"
-import Container from '../general/Container'
-import FinanceCard from '../misc/FinanceCard'
+import { Container } from '@/components/general'
+import { FinanceCard } from '@/components/misc'
 
 const FinanceCardGrid = ({ data, sectionId }) =>
 {

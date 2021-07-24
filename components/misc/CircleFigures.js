@@ -1,5 +1,4 @@
 import "twin.macro"
-import { H2, H4 } from "../typography/Typography"
 import CircleFigure from "./CircleFigure"
 import FlickityCarousel from "./FlickityCarousel"
 

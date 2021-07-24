@@ -1,10 +1,10 @@
 import { Menu } from "@headlessui/react"
-import { Fragment, useState } from "react"
+import { useState } from "react"
 import { BsChevronDown } from "react-icons/bs"
 import { FaCheckCircle } from "react-icons/fa"
 import tw, { styled } from "twin.macro"
-import Container from "../general/Container"
-import { H2 } from "../typography/Typography"
+import { Container } from "@/components/general"
+import { H2 } from "@/components/typography"
 
 const formatTable = (table) =>
 {
@@ -45,10 +45,12 @@ const Table = ({ data, sectionId }) =>
       <div tw=" my-12 overflow-x-auto mx-auto">
         <table tw="hidden laptop:block width[1100px] mx-auto my-4">
           <thead tw="border-gray-0 border-2">
-            <td tw="width[350px]" />
-            {[1, 2, 3].map((colIndex) => <td tw="whitespace-pre-line width[250px] text-purple text-21 py-8 font-bold text-center" key={`table_head-${colIndex}`}>
-              {data.table[0][colIndex]}
-            </td>)}
+            <tr>
+              <td tw="width[350px]" />
+              {[1, 2, 3].map((colIndex) => <td tw="whitespace-pre-line width[250px] text-purple text-21 py-8 font-bold text-center" key={`table_head-${colIndex}`}>
+                {data.table[0][colIndex]}
+              </td>)}
+            </tr>
           </thead>
           {tableBody.map((category, rowIndex) => <tbody key={category.title} tw="border-2 border-gray-0">
             {category.title !== "none" ? <tr tw="col-span-4 text-28 font-bold">
@@ -68,24 +70,26 @@ const Table = ({ data, sectionId }) =>
       </div>
       <table tw="laptop:hidden mx-auto my-16 w-full relative">
         <thead tw="sticky top[60px] border-gray-0 border-2">
-          <Menu>
-            <td tw="laptop:whitespace-pre-line text-purple text-21  text-center font-bold bg-white">
-              <Menu.Button tw="font-bold h-full w-full py-8 flex items-center justify-center px-4">
-                <div tw="flex-1" />
-                <div tw="flex-grow-0">{data.table[0][currentColIndex]}</div>
-                <div tw="flex-1 pl-2">
-                  <BsChevronDown tw="text-36 text-black" />
-                </div>
-              </Menu.Button>
-              <Menu.Items tw="absolute top-full w-full bg-white shadow-light-card outline-none">
-                {[1, 2, 3].map((index) => <Menu.Item key={index} >
-                  {({ active }) =>
-                    <MenuItem active={active} onClick={() => setCurrentColIndex(index)}>{data.table[0][index]}</MenuItem>
-                  }
-                </Menu.Item>)}
-              </Menu.Items>
-            </td>
-          </Menu>
+          <tr>
+            <Menu>
+              <td tw="laptop:whitespace-pre-line text-purple text-21  text-center font-bold bg-white">
+                <Menu.Button tw="font-bold h-full w-full py-8 flex items-center justify-center px-4">
+                  <div tw="flex-1" />
+                  <div tw="flex-grow-0">{data.table[0][currentColIndex]}</div>
+                  <div tw="flex-1 pl-2">
+                    <BsChevronDown tw="text-36 text-black" />
+                  </div>
+                </Menu.Button>
+                <Menu.Items tw="absolute top-full w-full bg-white shadow-light-card outline-none">
+                  {[1, 2, 3].map((index) => <Menu.Item key={index} >
+                    {({ active }) =>
+                      <MenuItem active={active} onClick={() => setCurrentColIndex(index)}>{data.table[0][index]}</MenuItem>
+                    }
+                  </Menu.Item>)}
+                </Menu.Items>
+              </td>
+            </Menu>
+          </tr>
           {/* <th tw="whitespace-pre-line width[250px] text-purple text-21 py-8 text-center font-bold bg-white">
             {data.table[0][currentColIndex]}
           </th> */}

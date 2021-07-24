@@ -1,7 +1,7 @@
 import { ApprovalPurple } from "assets/ApprovalPurple"
 import { StraightPath } from "assets/StraightPath"
 import "twin.macro"
-import StrapiImage from "../general/StrapiImage"
+import StrapiImage from "@/components/general/StrapiImage"
 
 const ColumnCard = ({ card, first }) =>
 {
@@ -18,7 +18,7 @@ const ColumnCard = ({ card, first }) =>
         <ApprovalPurple />
       </div>
 
-      <div tw="bg-gray-1 rounded-2.5xl flex flex-col mx-auto laptop:(flex-row) items-center relative max-width[560px] p-8 laptop:pr-16">
+      <div tw="bg-gray-1 rounded-2.5xl flex flex-col mx-auto laptop:(flex-row) items-center relative max-width[560px] px-8 py-4 laptop:pr-16">
         <div tw="flex-shrink-0">
           <StrapiImage image={card.image} />
         </div>

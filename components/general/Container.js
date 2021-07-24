@@ -1,8 +1,8 @@
 import React from 'react'
 import tw, { styled } from "twin.macro"
 import { convertBrackets } from 'utils/convertBrackets'
-import { Body, H1, H2 } from '../typography/Typography'
-import Button from './Button'
+import { Body, H1, H2 } from '@/components/typography'
+import { Button } from "@/components/general"
 
 const Wrapper = styled.section(({ backgroundColor, removeMargin }) => [
   tw`px-4 tablet:px-6`,

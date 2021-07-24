@@ -1,6 +1,6 @@
 import { FaPlay } from "react-icons/fa"
 import tw, { styled } from "twin.macro"
-import Link from "./Link"
+import { Link } from "@/components/general"
 
 
 const StyledButton = styled.div(({ size, color, fit }) => [

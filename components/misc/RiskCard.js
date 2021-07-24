@@ -1,6 +1,6 @@
-import { Banner } from "assets/Banner"
+import { Banner } from "assets"
 import "twin.macro"
-import { convertBrackets } from "utils/convertBrackets"
+import { convertBrackets } from "utils"
 
 const RiskCard = ({ card, index }) =>
 {

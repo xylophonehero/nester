@@ -1,6 +1,6 @@
 import "twin.macro"
-import Container from '../general/Container'
-import CardDetailed from '../misc/CardDetailed'
+import { Container } from '@/components/general'
+import { CardDetailed } from '@/components/misc'
 
 const CardDetailedGrid = ({ data }) =>
 {

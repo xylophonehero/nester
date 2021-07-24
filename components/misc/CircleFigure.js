@@ -1,5 +1,5 @@
 import "twin.macro"
-import { H2, H4 } from "../typography/Typography"
+import { H2, H4 } from "@/components/typography"
 
 const CircleFigure = ({ figure }) =>
 {

@@ -1,12 +1,21 @@
-import DynamicComponent from "../components/DynamicComponent"
-import fs from "fs"
-import pages from "../data/pages.json"
+import DynamicComponent from "@/components/DynamicComponent"
+import pages from "data/pages.json"
+import IframeResizer from "iframe-resizer-react"
+import "twin.macro"
 
 const REACT_APP = "http://localhost:3000/"
 
 const Home = ({ data }) =>
 {
-  if (data.is_embed) return <iframe id="embed" src={`${REACT_APP}${data.slug}`} tw="w-full height[100vh]" />
+  if (data.is_embed) return <IframeResizer
+    id="embed"
+    log
+    src={`${REACT_APP}${data.slug}`}
+    tw="w-full"
+    heightCalculationMethod="min"
+  />
+  // <iframe id="embed" src={`${REACT_APP}${data.slug}`} tw="w-full h-full flex-1" />
+
   return data.sections.map((section, index) => <DynamicComponent
     section={section}
     key={section.__component + section.id}
@@ -29,7 +38,7 @@ export async function getStaticPaths()
     // Get data from Strapi
     const res = await fetch("http://localhost:1337/pages")
     data = await res.json()
-    fs.writeFileSync("data/pages.json", JSON.stringify(data))
+    // fs.writeFileSync("data/pages.json", JSON.stringify(data))
   }
   const paths = data.filter((page) => page.slug !== "blog")
     .map((page) => ({ params: { slug: page.slug === "home" ? [] : [page.slug] } }))

@@ -1,8 +1,7 @@
 import React from 'react'
 import "twin.macro"
-import StrapiImage from '../general/StrapiImage'
+import { StrapiImage, Link } from '@/components/general'
 import { BsChevronRight } from "react-icons/bs"
-import Link from '../general/Link'
 
 const Card = ({ card }) =>
 {

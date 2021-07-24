@@ -1,8 +1,7 @@
-import { H1 } from "@/components/typography/Typography"
-import Button from "@/components/general/Button"
+import { H1 } from "@/components/typography"
+import { Button, StrapiImage } from "@/components/general"
 import tw, { styled } from "twin.macro"
-import StrapiImage from "../general/StrapiImage"
-import { convertBrackets } from "utils/convertBrackets"
+import { convertBrackets } from "utils"
 
 const Wrapper = styled.section(({ background_color }) => [
   tw`flex flex-col-reverse w-full text-white laptop:flex-row `,

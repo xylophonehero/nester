@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react"
-import tw, { styled } from "twin.macro"
-import Container from "../general/Container"
-import AccordianItem from "../general/AccordianItem"
-import Tabs from "../general/Tabs"
-
-const Tab = styled.button(({ isActiveTab }) => [
-  tw`relative flex-1 py-5 font-bold text-center uppercase border text-gray-2 text-18`,
-  isActiveTab && tw`text-purple after:(content absolute -bottom-1.5 w-full h-2 rounded-full bg-purple left-0)`
-])
+import "twin.macro"
+import { AccordianItem, Container, Tabs } from "@/components/general"
 
 const TabbedAccordian = ({ data, sectionId }) =>
 {

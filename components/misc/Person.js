@@ -1,9 +1,8 @@
-import { BigEgg } from "assets/BigEgg"
-import { Swirl } from "assets/Swirl"
+import { BigEgg, Swirl } from "assets"
 import { useRef } from "react"
 import { BsPlus } from "react-icons/bs"
 import tw, { styled } from "twin.macro"
-import StrapiImage from '../general/StrapiImage'
+import { StrapiImage } from '@/components/general'
 
 const IconWrapper = styled.div(({ open }) => [
   tw`transition-transform transform`,
