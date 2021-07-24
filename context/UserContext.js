@@ -26,7 +26,7 @@ const UserContextProvider = ({ children }) =>
   {
     const onMessageRecieved = (event) =>
     {
-      if (event.origin === PERMITTED_DOMAIN)
+      if (event.origin === PERMITTED_DOMAIN && !event.data.includes("[iFrameSizer]"))
       {
         const message = JSON.parse(event.data)
         // Set user data
@@ -58,7 +58,7 @@ const UserContextProvider = ({ children }) =>
         const win = ref.current.contentWindow
         win.postMessage("getUser", PERMITTED_DOMAIN)
         console.log("getUser message sent from Next")
-      }, 3000)
+      }, 2000)
     }
     return () => window.removeEventListener('message', onMessageRecieved)
   }, [routerRef])

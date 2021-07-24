@@ -9,7 +9,6 @@ const Home = ({ data }) =>
 {
   if (data.is_embed) return <IframeResizer
     id="embed"
-    log
     src={`${REACT_APP}${data.slug}`}
     tw="w-full"
     heightCalculationMethod="min"
