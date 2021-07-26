@@ -26,7 +26,7 @@ const AccordianItem = ({ item, isOpen, open, close }) =>
   // const [open, setOpen] = useState(false)
   return (
     <Item open={isOpen} >
-      <button tw="flex justify-between items-center w-full px-7 py-7 space-x-4" onClick={isOpen ? close : open}>
+      <button tw="flex justify-between items-center w-full px-7 py-7 space-x-4 focus:outline-none focus-visible:outline-black" onClick={isOpen ? close : open}>
         <h3 tw="font-bold text-18 tablet:text-21 text-left">{item.title}</h3>
         <div tw="text-purple ">
           <IconWrapper open={isOpen}>

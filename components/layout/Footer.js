@@ -9,7 +9,7 @@ const Footer = () =>
 {
   return (
 
-    <div tw="bg-navy w-full pt-20 pb-4 tablet:pb-44 laptop:pb-36">
+    <div tw="bg-navy w-full pt-20 pb-4 tablet:pb-44 laptop:pb-36 relative z-30">
       <Container>
         <div tw="bg-navy max-width[1200px] mx-auto">
           <div tw="flex flex-col space-y-8 laptop:(divide-x space-x-6 flex-row space-y-0) ">

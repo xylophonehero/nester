@@ -18,7 +18,12 @@ const Tabs = ({ tabs, tabIndex, setTabIndex }) =>
   return (
     <>
       <div tw="hidden laptop:flex border-b-2 border-color[#A5A9B9] max-w-5xl mx-auto mb-12">
-        {tabs.map((tab, index) => <Tab key={tab.id} isActiveTab={tabIndex === index} onClick={() => setTabIndex(index)}>
+        {tabs.map((tab, index) => <Tab
+          key={tab.id}
+          tabIndex={tabIndex === index ? -1 : 0}
+          isActiveTab={tabIndex === index}
+          onClick={() => setTabIndex(index)}
+        >
           {tab.name || tab.tag.name}
         </Tab>)}
       </div>
@@ -31,7 +36,7 @@ const Tabs = ({ tabs, tabIndex, setTabIndex }) =>
           <Menu.Items tw="absolute top-full w-full shadow-light-card bg-white text-purple font-bold mt-2 rounded-2xl overflow-hidden uppercase">
             {tabs.map((tab, index) => <Menu.Item key={tab.id}>
               {({ active }) => <MenuItem active={active} onClick={() => setTabIndex(index)}>
-                {tab.tag.name}
+                {tab.name || tab.tag.name}
               </MenuItem>}
             </Menu.Item>)}
           </Menu.Items>

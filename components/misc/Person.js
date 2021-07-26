@@ -18,7 +18,7 @@ const Person = ({ person, open, setOpen, close }) =>
   if (typeof ref.current !== "undefined" && open) maxHeight = ref.current.scrollHeight
 
   return (
-    <div tw="width[320px] mx-16 relative" style={{ height: `${270 + (typeof ref.current !== "undefined" ? ref.current.scrollHeight : 500)}px` }}>
+    <div tw="width[320px] mx-16 relative" style={{ height: `${270 + (typeof ref.current !== "undefined" ? ref.current.scrollHeight : 200)}px` }}>
       <HiddenPart ref={ref} style={{ maxHeight: `${maxHeight}px` }}>
         <p tw="mt-48 whitespace-pre-line  text-18">{person.bio}</p>
         <p tw="text-purple text-18 mb-8 mt-6">Click here to read more</p>

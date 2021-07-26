@@ -19,7 +19,7 @@ const Header = () =>
 {
   const { user } = useUserContext()
   return (
-    <div tw="sticky top-0 flex px-5 laptop:(px-20 h-20) desktop:px-24 items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-30">
+    <div tw="sticky top-0 flex px-5 laptop:(px-20 h-20) desktop:px-24 items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-50">
       <NextLink href="/">
         <a tw="width[140px] cursor-pointer">
           <StrapiImage image={header.logo} />

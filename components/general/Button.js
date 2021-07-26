@@ -21,12 +21,12 @@ const StyledButton = styled.div(({ size, color, fit }) => [
 const Button = ({ button, size, fit, ...rest }) =>
 {
   return (
-    <Link link={button.link}>
-      <StyledButton {...rest} size={button.size || "responsive"} color={button.color || "purple_white"} fit={fit}>
-        {button.icon === "play" && <FaPlay tw="mr-2" />}
-        {button.text}
-      </StyledButton>
-    </Link>
+
+    <StyledButton as={Link} link={button.link} {...rest} size={button.size || "responsive"} color={button.color || "purple_white"} fit={fit}>
+      {button.icon === "play" && <FaPlay tw="mr-2" />}
+      {button.text}
+    </StyledButton>
+
   )
 }
 

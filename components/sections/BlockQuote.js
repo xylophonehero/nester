@@ -5,7 +5,7 @@ const BlockQuote = ({ data, sectionId }) =>
 {
   return (
     <Container tw="max-w-4xl py-24" data={data} sectionId={sectionId}>
-      <blockquote tw="text-purple text-28 tablet:text-36 font-bold mb-10">{`"${data.quote}"`}</blockquote>
+      <blockquote tw="text-purple text-28 tablet:text-36 font-bold mb-10">&quot;{data.quote}&quot;</blockquote>
       <p tw="text-28 tablet:text-36 text-navy font-bold">{data.quotee}</p>
       <p tw="text-21 tablet:text-28 text-purple font-bold">{data.quotee_function}</p>
     </Container>
