@@ -30,7 +30,7 @@ const Tabs = ({ tabs, tabIndex, setTabIndex }) =>
       <div tw="laptop:hidden relative z-10 ">
         <Menu>
           <Menu.Button tw="bg-gray-0 flex items-center justify-between px-10 rounded-3.5xl py-7 w-full mb-12">
-            <span tw="font-bold text-purple text-16 uppercase">{tabs[tabIndex].name}</span>
+            <span tw="font-bold text-purple text-16 uppercase">{tabs[tabIndex].name || tabs[tabIndex].tag.name}</span>
             <BsChevronDown tw="text-21" />
           </Menu.Button>
           <Menu.Items tw="absolute top-full w-full shadow-light-card bg-white text-purple font-bold mt-2 rounded-2xl overflow-hidden uppercase">

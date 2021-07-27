@@ -25,7 +25,7 @@ const Person = ({ person, open, setOpen, close }) =>
       </HiddenPart>
       <div tw="relative pb-6 mb-8 px-6">
         <StrapiImage image={person.image} />
-        <button tw="absolute bottom-0 right-0 focus:outline-none" onClick={open ? close : setOpen}>
+        <button tw="absolute bottom-0 right-0" onClick={open ? close : setOpen}>
           <BigEgg />
           <div tw="absolute inset-0 flex items-center justify-center text-28">
             <IconWrapper open={open}>

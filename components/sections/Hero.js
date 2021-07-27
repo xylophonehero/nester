@@ -6,7 +6,7 @@ import { BsChevronCompactDown } from "react-icons/bs"
 import { CircleFigures } from "@/components/misc"
 
 const Wrapper = styled.section(({ layout }) => [
-  tw`w-full flex flex-col justify-end laptop:(flex-row justify-center)  relative  min-height[calc(100vh - 60px)] desktop:max-height[calc(100vh - 80px)]`,
+  tw`w-full flex flex-col justify-end laptop:(flex-row justify-center)  relative  min-height[calc(100vh - 60px)] desktop:min-height[calc(100vh - 80px)]`,
 ])
 
 const TextWrapper = styled.div(({ layout }) => [

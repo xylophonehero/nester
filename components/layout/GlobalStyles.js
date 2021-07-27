@@ -16,8 +16,17 @@ const CustomStyles = createGlobalStyle`
   .bold{
     ${tw`font-bold`}
   }
+  a{
+    ${tw`focus:outline-none focus-visible:outline-black`}
+  }
   button{
     ${tw`focus:outline-none focus-visible:outline-black`}
+  }
+  footer a {
+    ${tw`focus-visible:outline-white`}
+  }
+  footer button {
+    ${tw`focus-visible:outline-white`}
   }
 `
 
