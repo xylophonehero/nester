@@ -39,7 +39,6 @@ const Table = ({ data, sectionId }) =>
 
   const [currentColIndex, setCurrentColIndex] = useState(1)
 
-
   return (
     <Container data={data} tw="py-32" sectionId={sectionId}>
       <div tw=" my-12 overflow-x-auto mx-auto">
@@ -68,51 +67,45 @@ const Table = ({ data, sectionId }) =>
           </tbody>)}
         </table>
       </div>
-      <table tw="laptop:hidden mx-auto my-16 w-full relative">
-        <thead tw="sticky top[60px] border-gray-0 border-2">
-          <tr>
-            <Menu>
-              <td tw="laptop:whitespace-pre-line text-purple text-21  text-center font-bold bg-white">
-                <Menu.Button tw="font-bold h-full w-full py-8 flex items-center justify-center px-4">
-                  <div tw="flex-1" />
-                  <div tw="flex-grow-0">{data.table[0][currentColIndex]}</div>
-                  <div tw="flex-1 pl-2">
-                    <BsChevronDown tw="text-36 text-black" />
-                  </div>
-                </Menu.Button>
-                <Menu.Items tw="absolute top-full w-full bg-white shadow-light-card outline-none">
-                  {[1, 2, 3].map((index) => <Menu.Item key={index} >
-                    {({ active }) =>
-                      <MenuItem active={active} onClick={() => setCurrentColIndex(index)}>{data.table[0][index]}</MenuItem>
-                    }
-                  </Menu.Item>)}
-                </Menu.Items>
+      <div tw="laptop:hidden mx-auto my-16 w-full relative">
+        <div tw="text-purple text-center font-bold text-21 sticky top[60px]">
+          <Menu>
+            <Menu.Button tw="h-full w-full py-8 flex items-center justify-center px-4 border-2 border-gray-0 bg-white">
+              <div tw="flex-1" />
+              <div tw="flex-grow-0 font-bold">{data.table[0][currentColIndex]}</div>
+              <div tw="flex-1 pl-2">
+                <BsChevronDown tw="text-36 text-black" />
+              </div>
+            </Menu.Button>
+            <Menu.Items tw="absolute top-full width[calc(100% - 4px)] left-0.5 bg-white shadow-light-card outline-none">
+              {[1, 2, 3].filter((x) => x !== currentColIndex).map((index) => <Menu.Item key={index} >
+                {({ active }) =>
+                  <MenuItem active={active} onClick={() => setCurrentColIndex(index)}>{data.table[0][index]}</MenuItem>
+                }
+              </Menu.Item>)}
+            </Menu.Items>
+          </Menu>
+        </div>
+        <table tw="w-full">
+          {tableBody.map((category, rowIndex) => <tbody key={category.title} tw="border-gray-0 border-2">
+            {category.title !== "none" ? <tr tw="text-21 font-bold">
+              <th tw="text-center pb-4 text-purple pt-8">{category.title}</th>
+            </tr> : <tr />}
+            {category.rows.map((row) => <tr key={row.category} tw="text-16 tablet:text-18 even:bg-gray-0 min-height[80px]">
+              <td tw="text-center flex flex-col tablet:(flex-row max-width[450px] justify-between items-center mx-auto) py-5" key={`table:${rowIndex}-${currentColIndex}`}>
+                <p tw="mb-4 tablet:mb-0 font-bold">{row.category}</p>
+                <p tw="tablet:(min-width[40px] text-center)">
+                  {row[currentColIndex] === "TRUE" ?
+                    <FaCheckCircle tw="h-10 w-10 text-blue mx-auto" />
+                    :
+                    row[currentColIndex]}
+                </p>
               </td>
-            </Menu>
-          </tr>
-          {/* <th tw="whitespace-pre-line width[250px] text-purple text-21 py-8 text-center font-bold bg-white">
-            {data.table[0][currentColIndex]}
-          </th> */}
-        </thead>
-        {tableBody.map((category, rowIndex) => <tbody key={category.title} tw="border-gray-0 border-2">
-          {category.title !== "none" ? <tr tw="text-21 font-bold">
-            <th tw="text-center pb-4 text-purple pt-8">{category.title}</th>
-          </tr> : <tr />}
-          {category.rows.map((row) => <tr key={row.category} tw="text-16 tablet:text-18 even:bg-gray-0 min-height[80px]">
-            <td tw="text-center flex flex-col tablet:(flex-row max-width[450px] justify-between items-center mx-auto) py-5" key={`table:${rowIndex}-${currentColIndex}`}>
-              <p tw="mb-4 tablet:mb-0 font-bold">{row.category}</p>
-              <p tw="tablet:(min-width[40px] text-center)">
-                {row[currentColIndex] === "TRUE" ?
-                  <FaCheckCircle tw="h-10 w-10 text-blue mx-auto" />
-                  :
-                  row[currentColIndex]}
-              </p>
-            </td>
-          </tr>)}
-        </tbody>)}
-      </table>
+            </tr>)}
+          </tbody>)}
+        </table>
+      </div>
       <H2 tw="text-center mb-12">{data.prebutton_text}</H2>
-
     </Container>
   )
 }

@@ -94,7 +94,7 @@ const MobileMenu = () =>
                               item={item}
                               open={index === activeMenuIndex}
                               clickHandler={() => setActiveMenuIndex(index === activeMenuIndex ? -1 : index)}
-                              closeAll={() => setMobileMenuOpen(false)}
+                              closeMenu={() => setMobileMenuOpen(false)}
                             />
                           case "atoms.text-link":
                             return <div tw="" key={getId(item)}>

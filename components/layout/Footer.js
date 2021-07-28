@@ -35,7 +35,7 @@ const Footer = () =>
           <FooterText tw="hidden laptop:block text-white text-opacity-60 mt-3.5 text-14">{footer.copywright}</FooterText>
         </div>
       </Container>
-      <div tw="relative pt-8 laptop:(fixed pt-0) bottom-0 bg-navy bg-opacity-80 w-full z-40">
+      <div tw="relative pt-8 laptop:(fixed pt-0) bottom-0 bg-navy bg-opacity-80 w-full z-40 px-4 tablet:px-6">
         <div tw="text-white font-bold text-14 py-2  w-full max-width[1200px] mx-auto">
           <Markdown text={footer.bottom_text} components={{ p: FooterText }} />
         </div>
