@@ -5,7 +5,7 @@
   ],
   "rules": {
     "react/display-name": [
-      "ignore"
+      "off"
     ]
   }
 }
