@@ -7,8 +7,6 @@ import "twin.macro"
 
 const Markdown = ({ text, components }) =>
 {
-  // const newText = text.replaceAll("<u>", `<span class="underline">`)
-  //   .replaceAll(/\<\/u\>/g, "</span>")
   const defaultComponents = {
     h1: H1,
     h2: ({ children }) => <H1 as="h2">{children}</H1>,
