@@ -2,6 +2,7 @@ import DynamicComponent from "@/components/DynamicComponent"
 import pages from "data/pages.json"
 import IframeResizer from "iframe-resizer-react"
 import "twin.macro"
+import fs from "fs"
 
 const REACT_APP = "http://localhost:3000/"
 
@@ -37,7 +38,7 @@ export async function getStaticPaths()
     // Get data from Strapi
     const res = await fetch("http://localhost:1337/pages")
     data = await res.json()
-    // fs.writeFileSync("data/pages.json", JSON.stringify(data))
+    fs.writeFileSync("data/pages.json", JSON.stringify(data))
   }
   const paths = data.filter((page) => page.slug !== "blog")
     .map((page) => ({ params: { slug: page.slug === "home" ? [] : [page.slug] } }))

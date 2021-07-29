@@ -1,7 +1,6 @@
-import { Button, Link, StrapiImage } from "@/components/general"
+import { Button, Link } from "@/components/general"
 import { BurgerMenu } from "assets"
-import { Fragment, useRef, useState } from "react"
-import { FaChevronDown } from "react-icons/fa"
+import { Fragment, useEffect, useRef, useState } from "react"
 import tw, { styled } from "twin.macro"
 import NextLink from "next/link"
 import { getId } from "utils"
@@ -51,6 +50,10 @@ const MobileMenu = () =>
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeMenuIndex, setActiveMenuIndex] = useState(-1)
   const initialRef = useRef(null)
+  useEffect(() =>
+  {
+    if (!mobileMenuOpen) setActiveMenuIndex(-1)
+  }, [mobileMenuOpen])
   return (
     <>
       <OpenMenuButton isOpen={mobileMenuOpen} onClick={() => setMobileMenuOpen((prev) => !prev)} >

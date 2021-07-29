@@ -14,6 +14,7 @@ import
   TabbedAccordian,
   Table,
 } from "@/components/sections"
+import Article from "./sections/Article"
 
 const DynamicComponent = ({ section, sectionId }) =>
 {
@@ -47,8 +48,10 @@ const DynamicComponent = ({ section, sectionId }) =>
       return <PersonCarousel data={section} sectionId={sectionId} />
     case "section.blog":
       return <Blog data={section} sectionId={sectionId} />
+    case "section.richtext":
+      return <Article data={section} sectionId={sectionId} />
     default:
-      return <p id={sectionID}>Could not find component for {section.__component}</p>
+      return <p id={sectionId}>Could not find component for {section.__component}</p>
   }
 
 }
