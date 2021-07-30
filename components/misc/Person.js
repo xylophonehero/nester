@@ -9,7 +9,7 @@ const IconWrapper = styled.div(({ open }) => [
   open && tw`rotate-45`
 ])
 
-const HiddenPart = tw.div`absolute -mx-5 tablet:(w-auto -mx-28) laptop:-mx-14 desktop:-mx-28 bg-gray-0 top[240px] px-8 shadow-light-card (transition-max-height duration-500) overflow-hidden`
+const HiddenPart = tw.div`absolute -mx-5 tablet:(w-auto -mx-28) laptop:-mx-14 desktop:-mx-28 bg-gray-0 top[240px] px-8 shadow-light-card (transition-max-height duration-1000) overflow-hidden`
 
 const Person = ({ person, open, setOpen, close }) =>
 {

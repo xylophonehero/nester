@@ -1,4 +1,4 @@
-import "twin.macro"
+import tw, { styled } from "twin.macro"
 import { StrapiImage, Link, Button } from "@/components/general"
 import header from "data/header.json"
 import { getId } from "utils"
@@ -6,6 +6,7 @@ import NextLink from "next/link"
 import { FaChevronDown, FaUserAlt } from "react-icons/fa"
 import { MobileMenu, DropdownMenu } from "@/components/layout"
 import { useUserContext } from "context"
+import { useRouter } from "next/router"
 
 const userLinks = [
   { text: "Dashboard", link: { type: "internal", url: "/dashboard" }, showFor: "Investor,Borrower" },
@@ -15,9 +16,24 @@ const userLinks = [
   { text: "Change password", link: { type: "internal", url: "/changepassword" }, showFor: "Investor,Borrower,Basic" },
 ]
 
+const DropdownMenuWrapper = styled.div(() => [
+  tw`relative flex items-center h-full px-5`,
+  {
+    ":focus-within .hover-wrapper": tw`visible`,
+    ":focus-within .hover-menu": tw`scale-100 opacity-100`,
+    ":focus-within .hover-tab": tw`rotate-180!`,
+  }
+])
+
+const DropdownMenuText = styled.p(({ active }) => [
+  tw`flex font-bold text-white uppercase cursor-default desktop:text-18 text-16 focus:outline-none`,
+  active && tw`text-blue-2`
+])
+
 const Header = () =>
 {
   const { user } = useUserContext()
+  const { asPath: currentPath } = useRouter()
   return (
     <div tw="sticky top-0 flex px-5 laptop:(px-20 h-20) desktop:px-24 items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-50">
       <NextLink href="/" passHref>
@@ -33,12 +49,12 @@ const Header = () =>
           {
             case "misc.dropdown":
               if (user && !["All", user.type].includes(item.types_allowed)) return null
-              return <div className="group" tw="px-5 h-full flex items-center relative" key={getId(item)}>
-                <p tw="text-white font-bold uppercase desktop:text-18 text-16 flex cursor-default">
-                  {item.dropdown_text} <span tw="ml-2"><FaChevronDown /></span>
-                </p>
+              return <DropdownMenuWrapper className="group" key={getId(item)}>
+                <DropdownMenuText tabIndex={0} active={item.links.some((link) => link.link.url === currentPath)}>
+                  {item.dropdown_text} <span className="hover-tab" tw="ml-2 text-white group-hover:rotate-180 transform transition-transform duration-300"><FaChevronDown /></span>
+                </DropdownMenuText>
                 <DropdownMenu links={item.links} />
-              </div>
+              </DropdownMenuWrapper>
             case "atoms.text-link":
               return <div tw="text-white font-bold uppercase desktop:text-18 text-16 px-5" key={getId(item)}>
                 <Link link={item.link}>

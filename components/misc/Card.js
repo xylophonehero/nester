@@ -7,7 +7,7 @@ const Card = ({ card }) =>
 {
   return (
     <div tw="max-width[380px] mx-auto w-full">
-      <div tw="flex flex-col items-center w-full pt-16 pb-12 my-8 transition-shadow duration-300 shadow-card hover:shadow-card-hover rounded-3xl laptop:my-0">
+      <div tw="flex flex-col items-center w-full pt-16 pb-12 my-8 transition-shadow duration-300 shadow-card laptop:hover:shadow-card-hover rounded-3xl laptop:my-0">
         <div tw="mb-4">
           <StrapiImage image={card.image} />
         </div>
