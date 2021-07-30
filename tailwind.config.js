@@ -67,6 +67,10 @@ module.exports = {
       listStyleType: {
         egg: "url('http://localhost:1337/uploads/Ellipse_4_2e336f54f6.svg')",
       },
+      rotate: {
+        225: "225deg",
+        405: "405deg",
+      },
       spacing: {
         4.5: "18px",
         5.25: "21px",

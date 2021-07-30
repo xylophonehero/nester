@@ -5,11 +5,11 @@ import tw, { styled } from "twin.macro"
 import { StrapiImage } from '@/components/general'
 
 const IconWrapper = styled.div(({ open }) => [
-  tw`transition-transform transform`,
-  open && tw`rotate-45`
+  tw`transition-transform duration-700 ease-in-out transform`,
+  open && tw`rotate-225`
 ])
 
-const HiddenPart = tw.div`absolute -mx-5 tablet:(w-auto -mx-28) laptop:-mx-14 desktop:-mx-28 bg-gray-0 top[240px] px-8 shadow-light-card (transition-max-height duration-1000) overflow-hidden`
+const HiddenPart = tw.div`absolute -mx-5 tablet:(w-auto -mx-28) laptop:-mx-14 desktop:-mx-28 bg-gray-0 top[240px] px-8 shadow-light-card (transition-max-height duration-700) overflow-hidden`
 
 const Person = ({ person, open, setOpen, close }) =>
 {

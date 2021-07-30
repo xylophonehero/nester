@@ -11,7 +11,7 @@ const Wrapper = styled.section(({ layout }) => [
 
 const TextWrapper = styled.div(({ layout }) => [
   tw`relative flex flex-col justify-center px-5 desktop:px-36`,
-  layout === "center" && tw`items-center flex-1 text-center`,
+  layout === "center" && tw`items-center flex-1 my-16 text-center`,
   layout === "left_with_clip" && tw`justify-end items-center pb-14 bg-white to-white-60 laptop:(px-30 flex[2 1 0%] text-left items-start justify-center bg-transparent)`
 ])
 
