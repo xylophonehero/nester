@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 
 function MyApp({ Component, pageProps })
 {
-  const slug = pageProps.data.slug
+  const slug = pageProps.data?.slug
 
   useEffect(() =>
   {
