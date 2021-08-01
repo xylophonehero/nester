@@ -38,11 +38,11 @@ const UserContextProvider = ({ children }) =>
         // Redirect if this is a login message
         if (message?.type === "login")
         {
-          if (message.user.type === "Investor")
+          if (["Investor", "BasicInvestor"].includes(message.user.type))
           {
             routerRef.current.push("/opps", "/opps")
           }
-          if (["Broker", "Borrower"].includes(message.user.type))
+          if (["Borrower", "Introducer", "BasicBorrower", "BasicIntroducer"].includes(message.user.type))
           {
             routerRef.current.push("/financings", "/financings")
           }
