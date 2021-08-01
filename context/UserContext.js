@@ -28,6 +28,7 @@ const UserContextProvider = ({ children }) =>
     {
       if (event.origin === PERMITTED_DOMAIN && !event.data.includes("[iFrameSizer]"))
       {
+        console.log({ message_from_react: event })
         const message = JSON.parse(event.data)
         // Set user data
         if (["initial_load", "login"].includes(message?.type))
