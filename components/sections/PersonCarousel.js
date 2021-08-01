@@ -28,7 +28,7 @@ const PersonCarousel = ({ data, sectionId }) =>
 
   return (
     <Container data={data} tw="my-16 max-width[1366px]" removeMargin sectionId={sectionId}>
-      <Wrapper tw="my-12 relative (transition-max-height duration-700 ease-in-out) h-screen" style={{ maxHeight: `${carouselHeight}px` }}>
+      <Wrapper tw="my-12 relative (transition-max-height duration-700 ease-in-out) height[300vh]" style={{ maxHeight: `${carouselHeight}px` }}>
         <Flickity
           ref={flickityRef}
           options={{

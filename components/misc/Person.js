@@ -20,7 +20,7 @@ const Person = ({ person, open, setOpen, close, setCarouselHeight }) =>
     if (open)
     {
       maxHeight = ref.current.scrollHeight
-      setCarouselHeight(maxHeight + 470)
+      setCarouselHeight(maxHeight + 270)
     } else
     {
       maxHeight = 0
