@@ -15,6 +15,7 @@ import
   Table,
   Article,
   Stats,
+  AnnaxTable,
 } from "@/components/sections"
 
 const DynamicComponent = ({ section, sectionId }) =>
@@ -51,6 +52,8 @@ const DynamicComponent = ({ section, sectionId }) =>
       return <Blog data={section} sectionId={sectionId} />
     case "section.richtext":
       return <Article data={section} sectionId={sectionId} />
+    case "section.annex-table":
+      return <AnnaxTable data={section} sectionId={sectionId} />
     case "section.stats":
       return <Stats />
     default:

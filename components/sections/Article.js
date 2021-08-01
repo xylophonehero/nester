@@ -11,6 +11,11 @@ const MarkdownWrapper = styled.div(() => [
   }
 ])
 
+const ClausesWrapper = styled.div(({ noClauses }) => [
+  tw`ml-20 text-18`,
+  noClauses && tw`ml-8`
+])
+
 const Article = ({ data, sectionId }) =>
 {
   return <Container tw="max-w-6xl py-24" data={data} sectionId={sectionId}>
@@ -18,9 +23,9 @@ const Article = ({ data, sectionId }) =>
     <div>
       {data.sections.map((section, sectionIndex) => <div key={section.id}>
         <H3 tw="my-8">{`${sectionIndex + 1}. ${section.title}`}</H3>
-        <div tw="ml-20 text-18">
+        <ClausesWrapper noClauses={section.no_clauses}>
           {section.clauses.map((clause, clauseIndex) => <MarkdownWrapper key={clause.id} tw="relative mb-4">
-            <span tw="absolute top-0 -left-12">{`${sectionIndex + 1}.${clauseIndex + 1}`}</span>
+            {!section.no_clauses && <span tw="absolute top-0 -left-12">{`${sectionIndex + 1}.${clauseIndex + 1}`}</span>}
             <Markdown
               text={clause.text}
               components={{
@@ -30,7 +35,7 @@ const Article = ({ data, sectionId }) =>
             />
           </MarkdownWrapper>
           )}
-        </div>
+        </ClausesWrapper>
       </div>)}
     </div>
   </Container>

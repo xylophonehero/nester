@@ -14,6 +14,7 @@ import Stats from "./Stats"
 import TabbedAccordian from "./TabbedAccordian"
 import Table from "./Table"
 import Article from "./Article";
+import AnnaxTable from "./AnnaxTable";
 
 export
 {
@@ -33,4 +34,5 @@ export
   Table,
   Stats,
   Article,
+  AnnaxTable,
 }
