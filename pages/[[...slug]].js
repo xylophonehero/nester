@@ -4,7 +4,7 @@ import IframeResizer from "iframe-resizer-react"
 import "twin.macro"
 import fs from "fs"
 
-const REACT_APP = "http://localhost:3000/"
+const REACT_APP = "https://app.nestertest.com/"
 
 const Home = ({ data }) =>
 {
@@ -14,7 +14,6 @@ const Home = ({ data }) =>
     tw="w-full"
     heightCalculationMethod="min"
   />
-  // <iframe id="embed" src={`${REACT_APP}${data.slug}`} tw="w-full h-full flex-1" />
 
   return data.sections.map((section, index) => <DynamicComponent
     section={section}

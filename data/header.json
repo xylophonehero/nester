@@ -2,7 +2,7 @@
   "id": 1,
   "published_at": "2021-07-10T08:11:18.341Z",
   "created_at": "2021-07-10T08:04:45.341Z",
-  "updated_at": "2021-07-24T13:11:03.990Z",
+  "updated_at": "2021-08-01T15:13:02.519Z",
   "menu": [
     {
       "__component": "misc.dropdown",
@@ -49,7 +49,7 @@
       "__component": "misc.dropdown",
       "id": 2,
       "dropdown_text": "Invest",
-      "types_allowed": "Investor",
+      "types_allowed": "Investor,BasicInvestor",
       "links": [
         {
           "id": 14,
@@ -79,7 +79,7 @@
       "__component": "misc.dropdown",
       "id": 3,
       "dropdown_text": "Request finance",
-      "types_allowed": "Borrower",
+      "types_allowed": "Borrower,BasicBorrower",
       "links": [
         {
           "id": 15,
@@ -109,7 +109,7 @@
       "__component": "misc.dropdown",
       "id": 4,
       "dropdown_text": "Broker portal",
-      "types_allowed": "Basic",
+      "types_allowed": "Introducer,BasicIntroducer",
       "links": [
         {
           "id": 18,

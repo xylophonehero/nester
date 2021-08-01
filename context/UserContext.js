@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { createContext, useContext, useState, useRef, useEffect } from 'react'
 
-const PERMITTED_DOMAIN = "http://localhost:3000"
+const PERMITTED_DOMAIN = "https://app.nestertest.com/"
 
 const UserContext = createContext(null)
 
@@ -40,11 +40,11 @@ const UserContextProvider = ({ children }) =>
         {
           if (message.user.type === "Investor")
           {
-            routerRef.current.push("/opps")
+            routerRef.current.push("/opps", "/opps")
           }
           if (["Broker", "Borrower"].includes(message.user.type))
           {
-            routerRef.current.push("/financings")
+            routerRef.current.push("/financings", "/financings")
           }
         }
       }
