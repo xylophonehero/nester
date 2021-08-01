@@ -26,7 +26,7 @@ const UserContextProvider = ({ children }) =>
   {
     const onMessageRecieved = (event) =>
     {
-      if (!event.data && !event.data.includes("[iFrameSizer]")) console.log({ message_from_react: event })
+      console.log({ message_from_react: event })
       if (event.origin === PERMITTED_DOMAIN && !event.data.includes("[iFrameSizer]"))
       {
 
