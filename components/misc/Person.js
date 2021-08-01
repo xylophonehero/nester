@@ -11,11 +11,21 @@ const IconWrapper = styled.div(({ open }) => [
 
 const HiddenPart = tw.div`absolute -mx-5 tablet:(w-auto -mx-28) laptop:-mx-14 desktop:-mx-28 bg-gray-0 top[240px] px-8 shadow-light-card (transition-max-height duration-700) overflow-hidden`
 
-const Person = ({ person, open, setOpen, close }) =>
+const Person = ({ person, open, setOpen, close, setCarouselHeight }) =>
 {
   const ref = useRef()
   let maxHeight = 0
-  if (typeof ref.current !== "undefined" && open) maxHeight = ref.current.scrollHeight
+  if (typeof ref.current !== "undefined")
+  {
+    if (open)
+    {
+      maxHeight = ref.current.scrollHeight
+      setCarouselHeight(maxHeight + 470)
+    } else
+    {
+      maxHeight = 0
+    }
+  }
 
   return (
     <div tw="width[320px] mx-16 relative" style={{ height: `${270 + (typeof ref.current !== "undefined" ? ref.current.scrollHeight : 200)}px` }}>

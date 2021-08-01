@@ -13,7 +13,13 @@ const Wrapper = styled.div({
 const PersonCarousel = ({ data, sectionId }) =>
 {
   const [openIndex, setOpenIndex] = useState(-1)
+  const [carouselHeight, setCarouselHeight] = useState(470)
   const flickityRef = useRef()
+
+  useEffect(() =>
+  {
+    if (openIndex === -1) setCarouselHeight(470)
+  }, [openIndex])
 
   useEffect(() =>
   {
@@ -22,7 +28,7 @@ const PersonCarousel = ({ data, sectionId }) =>
 
   return (
     <Container data={data} tw="my-16 max-width[1366px]" removeMargin sectionId={sectionId}>
-      <Wrapper tw="my-12 relative">
+      <Wrapper tw="my-12 relative (transition-max-height duration-700 ease-in-out) h-screen" style={{ maxHeight: `${carouselHeight}px` }}>
         <Flickity
           ref={flickityRef}
           options={{
@@ -30,6 +36,7 @@ const PersonCarousel = ({ data, sectionId }) =>
             pageDots: false,
             cellAlign: "center",
             groupCells: "75%",
+            adaptiveHeight: true
             // arrowShape: "M23.5 9L0.999999 9M0.999999 9L9 17M0.999999 9L9 1",
           }}
         >
@@ -39,6 +46,7 @@ const PersonCarousel = ({ data, sectionId }) =>
             open={index === openIndex}
             setOpen={() => setOpenIndex(index)}
             close={() => setOpenIndex(-1)}
+            setCarouselHeight={setCarouselHeight}
           />)}
         </Flickity>
         <div tw="absolute left-0 top-0 bottom-0 w-1/6 laptop:w-1/12 desktop:w-1/6 bg-gradient-to-r from-white z-10 hidden tablet:block" />
