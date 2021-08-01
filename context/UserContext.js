@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import { createContext, useContext, useState, useRef, useEffect } from 'react'
 
-const PERMITTED_DOMAIN = "https://app.nestertest.com/"
+const PERMITTED_DOMAIN = "https://app.nestertest.com"
 
 const UserContext = createContext(null)
 
@@ -26,10 +26,8 @@ const UserContextProvider = ({ children }) =>
   {
     const onMessageRecieved = (event) =>
     {
-      console.log({ message_from_react: event })
       if (event.origin === PERMITTED_DOMAIN && !event.data.includes("[iFrameSizer]"))
       {
-
         const message = JSON.parse(event.data)
         // Set user data
         if (["initial_load", "login"].includes(message?.type))
