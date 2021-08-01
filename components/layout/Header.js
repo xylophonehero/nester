@@ -48,7 +48,7 @@ const Header = () =>
           switch (item.__component)
           {
             case "misc.dropdown":
-              if (user && !["All", user.type].includes(item.types_allowed)) return null
+              if (user && !item.types_allowed === "All" && !item.types_allowed.includes(user.type)) return null
               return <DropdownMenuWrapper className="group" key={getId(item)}>
                 <DropdownMenuText tabIndex={0} active={item.links.some((link) => link.link.url === currentPath)}>
                   {item.dropdown_text} <span className="hover-tab" tw="ml-2 text-white group-hover:rotate-180 transform transition-transform duration-300"><FaChevronDown /></span>
