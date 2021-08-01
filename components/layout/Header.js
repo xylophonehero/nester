@@ -9,10 +9,10 @@ import { useUserContext } from "context"
 import { useRouter } from "next/router"
 
 const userLinks = [
-  { text: "Dashboard", link: { type: "internal", url: "/dashboard" }, showFor: "Investor,Borrower,Introducer" },
-  { text: "My profile", link: { type: "internal", url: "/profile" }, showFor: "Investor,Borrower, Introducer" },
+  { text: "Dashboard", link: { type: "internal", url: "/dashboard" }, showFor: "Investor,Borrower" },
+  { text: "My profile", link: { type: "internal", url: "/profile" }, showFor: "Investor,Borrower" },
   { text: "My transactions", link: { type: "internal", url: "/transactions" }, showFor: "Investor" },
-  { text: "Financings", link: { type: "internal", url: "/financings" }, showFor: "Borrower," },
+  { text: "Financings", link: { type: "internal", url: "/financings" }, showFor: "Borrower,Introducer" },
   { text: "Change password", link: { type: "internal", url: "/changepassword" }, showFor: "Investor,Borrower,Introducer,BasicInvestor,BasicBorrower,BasicIntroducer" },
 ]
 

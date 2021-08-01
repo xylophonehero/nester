@@ -2,7 +2,7 @@
   "id": 1,
   "published_at": "2021-07-10T08:11:18.341Z",
   "created_at": "2021-07-10T08:04:45.341Z",
-  "updated_at": "2021-08-01T15:13:02.519Z",
+  "updated_at": "2021-08-01T17:02:29.866Z",
   "menu": [
     {
       "__component": "misc.dropdown",
@@ -127,7 +127,7 @@
           "text": "Broker's portal",
           "link": {
             "id": 47,
-            "url": "/regintroducer",
+            "url": "/financings",
             "page": null,
             "email": null,
             "type": "internal"
