@@ -13,8 +13,9 @@ import
   PersonCarousel,
   TabbedAccordian,
   Table,
+  Article,
+  Stats,
 } from "@/components/sections"
-import Article from "./sections/Article"
 
 const DynamicComponent = ({ section, sectionId }) =>
 {
@@ -50,6 +51,8 @@ const DynamicComponent = ({ section, sectionId }) =>
       return <Blog data={section} sectionId={sectionId} />
     case "section.richtext":
       return <Article data={section} sectionId={sectionId} />
+    case "section.stats":
+      return <Stats />
     default:
       return <p id={sectionId}>Could not find component for {section.__component}</p>
   }

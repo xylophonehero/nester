@@ -10,8 +10,10 @@ import FinanceCardGrid from "./FinanceCardGrid"
 import Hero from "./Hero"
 import ImageText from "./ImageText"
 import PersonCarousel from "./PersonCarousel"
+import Stats from "./Stats"
 import TabbedAccordian from "./TabbedAccordian"
 import Table from "./Table"
+import Article from "./Article";
 
 export
 {
@@ -29,4 +31,6 @@ export
   PersonCarousel,
   TabbedAccordian,
   Table,
+  Stats,
+  Article,
 }
