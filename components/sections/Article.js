@@ -7,7 +7,8 @@ const MarkdownWrapper = styled.div(() => [
   {
     "ol": tw`counter-reset[list]`,
     "ol > li": tw`relative before:(absolute -ml-12 counter-increment[list] content["(" counter(list, lower-alpha) ")"])`,
-    "ol ol > li": tw`relative before:(absolute -ml-12 counter-increment[list] content["(" counter(list, lower-roman) ")"])`
+    "ol ol > li": tw`relative before:(absolute -ml-12 counter-increment[list] content["(" counter(list, lower-roman) ")"])`,
+    "ol ol ol > li": tw`relative before:(absolute -ml-12 counter-increment[list] content["(" counter(list, upper-alpha) ")"])`,
   }
 ])
 
