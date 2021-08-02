@@ -22,7 +22,6 @@ const AnnaxTable = ({ data }) => <div tw="px-4 tablet:px-6">
       <tbody>
         {data.table_row.map((row) =>
         {
-          console.log(row)
           return <tr key={row.id}>
             {[...Array(data.header_row.length).keys()].map((index) => <td tw="align-top p-4 border border-gray-0" key={index}>
               {row.cell[index]?.text && <Markdown
