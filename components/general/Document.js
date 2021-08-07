@@ -1,5 +1,4 @@
 import { Document, Page, Text, View, Image, StyleSheet, Font } from '@react-pdf/renderer'
-// import logo from "../../assets/images/logo.png"
 import "twin.macro"
 
 Font.register({

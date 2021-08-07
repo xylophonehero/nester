@@ -3,9 +3,7 @@ import { PDFDownloadLink, PDFViewer } from '@react-pdf/renderer'
 import { useState } from 'react'
 import MyDocument from './Document'
 import "twin.macro"
-import Container from './Container'
 import { StyledButton } from './Button'
-import { H1 } from '../typography'
 
 const PdfDownload = () =>
 {
@@ -40,8 +38,7 @@ const PdfDownload = () =>
   }
 
   return (
-    <Container tw="max-w-2xl py-16 flex flex-col items-center">
-      <H1 tw="mb-8">Donwload statement</H1>
+    <>
       <form tw="space-y-4 mb-8 w-full flex flex-col items-center max-width[300px] bg-gray-0 rounded-2xl p-4 shadow" onSubmit={handleSubmit}>
         <div tw="w-full">
           <label htmlFor="startMonth" tw="block text-14 font-medium text-gray-4 mb-1">
@@ -81,8 +78,7 @@ const PdfDownload = () =>
           </StyledButton>
         }
       </PDFDownloadLink>}
-      {/* {isValid && <PDFViewer months={months} />} */}
-    </Container>
+    </>
   )
 }
 
