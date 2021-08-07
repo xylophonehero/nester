@@ -1,4 +1,4 @@
-import { Document, Page, Text, View, Image, StyleSheet, PDFViewer, Font } from '@react-pdf/renderer'
+import { Document, Page, Text, View, Image, StyleSheet, Font } from '@react-pdf/renderer'
 // import logo from "../../assets/images/logo.png"
 import "twin.macro"
 
@@ -18,8 +18,6 @@ const data = {
   postCode: "ABC 123",
   date: "07/08/2021",
   accountNumber: "12345678",
-  month1: "July",
-  month2: "August",
   items: [
     {
       date: "18/07/2021",
@@ -88,6 +86,12 @@ const styles = StyleSheet.create({
     borderLeftWidth: 0,
     borderTopWidth: 0
   },
+  tableColSmall: {
+    width: "15%",
+  },
+  tableColLarge: {
+    width: "35%",
+  },
   tableCell: {
     margin: 4,
     marginBottom: 12,
@@ -105,97 +109,106 @@ const formatCurrency = (amount) =>
   return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' }).format(amount)
 }
 
-const MyDocument = () =>
+const formatDate = (dateString) =>
 {
-  // return <img src="/logo.png" />
+  const [year, month] = dateString.split("-")
+  const date = new Date(Date.UTC(year, month - 1))
+  return new Intl.DateTimeFormat('en-GB', { month: "long" }).format(date)
+}
+
+const MyDocument = ({ months }) =>
+{
+  const startMonth = formatDate(months.startMonth)
+  const endMonth = formatDate(months.endMonth)
+  if (!startMonth || !endMonth) return null
 
   return (
-    <PDFViewer tw="w-full height[150vh]">
-      <Document>
-        <Page size="A4" style={styles.page}>
-          <View style={styles.section}>
-            <Text style={styles.addressText}>
+    <Document
+      title={`${data.firstName} ${data.secondName} Statement: ${startMonth}-${endMonth}`}
+    >
+      <Page size="A4" style={styles.page}>
+        <View style={styles.section}>
+          <Text style={styles.addressText}>
+            {[
+              "info@nester.com",
+              "0203 983 0707",
+              "30 Moorgate, London",
+              "EC2R 6PJ"
+            ].join("\n")}
+          </Text>
+          <Image
+            src="/logo.png"
+            alt="logo"
+            style={{ maxWidth: 360, margin: "auto", marginBottom: 36, marginTop: 0 }}
+          />
+          <Text style={styles.title}>
+            Your Statement
+          </Text>
+          <View style={styles.mainBody}>
+            <Text style={{ marginBottom: 24 }}>
               {[
-                "info@nester.com",
-                "0203 983 0707",
-                "30 Moorgate, London",
-                "EC2R 6PJ"
+                `${data.firstName} ${data.secondName}`,
+                data.firstLineAddress,
+                data.town,
+                data.postCode
               ].join("\n")}
+              {/* {`${data.firstName} ${data.secondName}\n`} */}
             </Text>
-            <Image
-              src="/logo.png"
-              alt="logo"
-              style={{ maxWidth: 360, margin: "auto", marginBottom: 36, marginTop: 0 }}
-            />
-            <Text style={styles.title}>
-              Your Statement
+            <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 8 }}>
+              <View style={{ flex: "3 0 auto" }}>
+                <Text>{`Dear ${data.title} ${data.secondName},`}</Text>
+              </View>
+              <View style={{ flex: "1 0 auto" }}>
+                <Text style={{ marginBottom: 8 }}>{data.date}</Text>
+                <Text>{data.accountNumber}</Text>
+              </View>
+            </View>
+            <Text style={{ marginBottom: 24 }}>
+              {`Please see below your statement for the time period of ${startMonth}-${endMonth}. If something looks incorrect on your statement, contact us to correct this.`}
             </Text>
-            <View style={styles.mainBody}>
-              <Text style={{ marginBottom: 24 }}>
-                {[
-                  `${data.firstName} ${data.secondName}`,
-                  data.firstLineAddress,
-                  data.town,
-                  data.postCode
-                ].join("\n")}
-                {/* {`${data.firstName} ${data.secondName}\n`} */}
-              </Text>
-              <View style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", marginBottom: 8 }}>
-                <View style={{ flex: "3 0 auto" }}>
-                  <Text>{`Dear ${data.title} ${data.secondName},`}</Text>
+            <View style={styles.table}>
+              {/* TableHeader */}
+              <View style={{ ...styles.tableRow, fontWeight: "bold" }}>
+                <View style={[styles.tableCol, styles.tableColSmall]}>
+                  <Text style={styles.tableCell}>Date:</Text>
                 </View>
-                <View style={{ flex: "1 0 auto" }}>
-                  <Text style={{ marginBottom: 8 }}>{data.date}</Text>
-                  <Text>{data.accountNumber}</Text>
+                <View style={[styles.tableCol, styles.tableColLarge]}>
+                  <Text style={styles.tableCell}>Description:</Text>
+                </View>
+                <View style={[styles.tableCol, styles.tableColLarge]}>
+                  <Text style={styles.tableCell}>Reference:</Text>
+                </View>
+                <View style={[styles.tableCol, styles.tableColSmall]}>
+                  <Text style={styles.tableCell}>Amount:</Text>
                 </View>
               </View>
-              <Text style={{ marginBottom: 24 }}>
-                {`Please see below your statement for the time period of ${data.month1}-${data.month2}. If something looks incorrect on your statement, contact us to correct this.`}
-              </Text>
-              <View style={styles.table}>
-                {/* TableHeader */}
-                <View style={{ ...styles.tableRow, fontWeight: "bold" }}>
-                  <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
-                    <Text style={styles.tableCell}>Date:</Text>
-                  </View>
-                  <View style={{ ...styles.tableCol, width: columnLargeWidth }}>
-                    <Text style={styles.tableCell}>Description:</Text>
-                  </View>
-                  <View style={{ ...styles.tableCol, width: columnLargeWidth }}>
-                    <Text style={styles.tableCell}>Reference:</Text>
-                  </View>
-                  <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
-                    <Text style={styles.tableCell}>Amount:</Text>
-                  </View>
+              {data.items.map((item) => <View key={item.reference} style={styles.tableRow}>
+                <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
+                  <Text style={styles.tableCell}>{item.date}</Text>
                 </View>
-                {data.items.map((item) => <View key={item.reference} style={styles.tableRow}>
-                  <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
-                    <Text style={styles.tableCell}>{item.date}</Text>
-                  </View>
-                  <View style={{ ...styles.tableCol, width: columnLargeWidth }}>
-                    <Text style={styles.tableCell}>{item.description}</Text>
-                  </View>
-                  <View style={{ ...styles.tableCol, width: columnLargeWidth }}>
-                    <Text style={styles.tableCell}>{item.reference}</Text>
-                  </View>
-                  <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
-                    <Text style={styles.tableCell}>{formatCurrency(item.amount)}</Text>
-                  </View>
-                </View>)}
-                <View style={styles.tableRow}>
-                  <View style={{ ...styles.tableCol, width: "85%" }}>
-                    <Text style={styles.tableCell}>Balance</Text>
-                  </View>
-                  <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
-                    <Text style={styles.tableCell}>{formatCurrency(itemTotal(data.items))}</Text>
-                  </View>
+                <View style={{ ...styles.tableCol, width: columnLargeWidth }}>
+                  <Text style={styles.tableCell}>{item.description}</Text>
+                </View>
+                <View style={{ ...styles.tableCol, width: columnLargeWidth }}>
+                  <Text style={styles.tableCell}>{item.reference}</Text>
+                </View>
+                <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
+                  <Text style={styles.tableCell}>{formatCurrency(item.amount)}</Text>
+                </View>
+              </View>)}
+              <View style={styles.tableRow}>
+                <View style={{ ...styles.tableCol, width: "85%" }}>
+                  <Text style={styles.tableCell}>Balance</Text>
+                </View>
+                <View style={{ ...styles.tableCol, width: columnSmallWidth }}>
+                  <Text style={styles.tableCell}>{formatCurrency(itemTotal(data.items))}</Text>
                 </View>
               </View>
             </View>
           </View>
-        </Page>
-      </Document>
-    </PDFViewer >
+        </View>
+      </Page>
+    </Document>
   )
 }
 

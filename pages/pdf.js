@@ -1,12 +1,10 @@
 import dynamic from 'next/dynamic';
-const PDF = dynamic(() => import('@/components/general/Document'), { ssr: false });
+const PdfDownload = dynamic(() => import('@/components/general/PdfDownload'), { ssr: false });
 
 const Pdf = () =>
 {
   return (
-
-    <PDF />
-
+    <PdfDownload />
   )
 }
 

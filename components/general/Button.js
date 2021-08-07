@@ -3,7 +3,7 @@ import tw, { styled } from "twin.macro"
 import { Link } from "@/components/general"
 
 
-const StyledButton = styled.div(({ size, color, fit }) => [
+export const StyledButton = styled.div(({ size, color, fit }) => [
   tw`px-8 py-2 font-bold uppercase transition-shadow duration-300 border shadow-none rounded-3.5xl hover:shadow-button flex items-center justify-center`,
   color === "purple_white" && tw`text-white bg-purple border-purple`,
   color === "white_purple" && tw`bg-white border-purple text-purple`,
