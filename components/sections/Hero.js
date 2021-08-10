@@ -4,15 +4,17 @@ import { Button, StrapiImage } from "@/components/general"
 import { convertBrackets } from "utils"
 import { BsChevronCompactDown } from "react-icons/bs"
 import { CircleFigures } from "@/components/misc"
+import { useEffect, useState } from "react"
 
 const Wrapper = styled.section(({ layout }) => [
   tw`w-full flex flex-col justify-end laptop:(flex-row justify-center)  relative  min-height[calc(100vh - 60px)] desktop:min-height[calc(100vh - 80px)]`,
 ])
 
-const TextWrapper = styled.div(({ layout }) => [
-  tw`relative flex flex-col justify-center px-5 desktop:px-36`,
+const TextWrapper = styled.div(({ layout, inView }) => [
+  tw`relative flex flex-col justify-center px-5 desktop:px-36 (transition duration-700) transform opacity-100`,
   layout === "center" && tw`items-center flex-1 my-16 text-center`,
-  layout === "left_with_clip" && tw`justify-end items-center pb-14 bg-white to-white-60 laptop:(px-30 flex[2 1 0%] text-left items-start justify-center bg-transparent)`
+  layout === "left_with_clip" && tw`justify-end items-center pb-14 bg-white to-white-60 laptop:(px-30 flex[2 1 0%] text-left items-start justify-center bg-transparent)`,
+  !inView && tw`scale-90 opacity-0 translate-y-30`
 ])
 
 const BackgroundImage = styled.div(({ layout }) => [
@@ -47,6 +49,11 @@ const Fade = styled.div(({ layout }) => [
 
 const Hero = ({ data, sectionId }) =>
 {
+  const [inView, setInView] = useState(false)
+  useEffect(() =>
+  {
+    setInView(true)
+  }, [])
   return (
     <Wrapper id={sectionId} layout={data.layout}>
       {data.background_image && <BackgroundImage layout={data.layout}  >
@@ -56,7 +63,7 @@ const Hero = ({ data, sectionId }) =>
         </div>
       </BackgroundImage>}
       <Fade layout={data.layout} />
-      <TextWrapper layout={data.layout}>
+      <TextWrapper layout={data.layout} inView={inView}>
         <Title layout={data.layout}>{data.title}</Title>
         {data.subtitle && data.subtitle_size === "display" && <Display tw="mb-7 max-width[24ch]">{data.subtitle}</Display>}
         {data.subtitle && data.subtitle_size === "medium" && <H2 as="p" tw="mb-7 max-width[40ch] ">{data.subtitle}</H2>}
