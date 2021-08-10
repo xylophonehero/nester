@@ -15,7 +15,7 @@ const Wrapper = styled.section(({ backgroundColor, removeMargin }) => [
 
 const AnimationWrapper = styled.div(({ inView }) => [
   tw`transform opacity-100 mx-auto (transition duration-700)`,
-  !inView && tw`translate-y-48 opacity-0`
+  !inView && tw`scale-90 translate-y-48 opacity-0`
 ])
 
 const Container = ({ children, removeMargin, data = {}, sectionId, noAnimation = false, ...rest }) =>

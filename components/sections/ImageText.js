@@ -12,13 +12,13 @@ const Wrapper = styled.section(({ background_color }) => [
 
 const AnimationWrapper = styled.div(({ inView }) => [
   tw`transform opacity-100 (transition duration-700)`,
-  !inView && tw`translate-y-24 opacity-0`
+  !inView && tw`scale-90 opacity-0 translate-y-30`
 ])
 
 const ImageText = ({ data, sectionId }) =>
 {
   const [ref, inView] = useInView({
-    rootMargin: "-100px 0px",
+    rootMargin: "-150px 0px",
     triggerOnce: true
   })
 
