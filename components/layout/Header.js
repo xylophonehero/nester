@@ -43,6 +43,8 @@ const Header = () =>
       </NextLink>
       <div tw="flex-1" />
       <nav tw="hidden desktop:flex flex-row items-center h-full">
+        <NextLink href="/about">About</NextLink>
+        <NextLink href="/test">Test</NextLink>
         {header.menu.map((item) =>
         {
           switch (item.__component)
