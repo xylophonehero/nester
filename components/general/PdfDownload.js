@@ -14,7 +14,6 @@ const PdfDownload = () =>
   const handleSubmit = (e) =>
   {
     e.preventDefault()
-    // Date checking here
     const formData = new FormData(e.target)
     const formMonths = {
       startMonth: formData.get("startMonth"),
@@ -31,6 +30,7 @@ const PdfDownload = () =>
       setIsValid(false)
     } else
     {
+      // Run async function to get data from API. On complete setIsValid(true) adn setData(ApiResponse)
       setErrorMessage("")
       setMonths(formMonths)
       setIsValid(true)

@@ -21,10 +21,10 @@ const PersonCarousel = ({ data, sectionId }) =>
     if (openIndex === -1) setCarouselHeight(470)
   }, [openIndex])
 
-  useEffect(() =>
-  {
-    flickityRef.current.flkty.on("change", () => setOpenIndex(-1))
-  }, [])
+  // useEffect(() =>
+  // {
+  //   flickityRef.current.flkty.on("change", () => setOpenIndex(-1))
+  // }, [])
 
   return (
     <Container data={data} tw="my-16 max-width[1366px]" removeMargin sectionId={sectionId}>

@@ -1,5 +1,5 @@
 import { BigEgg, Swirl } from "assets"
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { BsPlus } from "react-icons/bs"
 import tw, { styled } from "twin.macro"
 import { StrapiImage } from '@/components/general'
@@ -13,19 +13,25 @@ const HiddenPart = tw.div`absolute -mx-5 tablet:(w-auto -mx-28) laptop:-mx-14 de
 
 const Person = ({ person, open, setOpen, close, setCarouselHeight }) =>
 {
+  const [maxHeight, setMaxHeight] = useState(0)
   const ref = useRef()
-  let maxHeight = 0
-  if (typeof ref.current !== "undefined")
+  const setCarouselHeightRef = useRef(setCarouselHeight)
+  // let maxHeight = 0
+  useEffect(() =>
   {
-    if (open)
+
+    if (typeof ref.current !== "undefined")
     {
-      maxHeight = ref.current.scrollHeight
-      setCarouselHeight(maxHeight + 270)
-    } else
-    {
-      maxHeight = 0
+      if (open)
+      {
+        setMaxHeight(ref.current.scrollHeight)
+        setCarouselHeightRef.current(ref.current.scrollHeight + 270)
+      } else
+      {
+        setMaxHeight(0)
+      }
     }
-  }
+  }, [open])
 
   return (
     <div tw="width[320px] mx-16 relative" style={{ height: `${270 + (typeof ref.current !== "undefined" ? ref.current.scrollHeight : 200)}px` }}>
