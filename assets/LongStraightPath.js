@@ -1,4 +1,4 @@
-export const LongStraightPath = () => <svg
+export const LongStraightPath = ({ strokeDasharray, strokeWidth }) => <svg
   width={4}
   height={491}
   viewBox="0 0 4 491"
@@ -7,9 +7,9 @@ export const LongStraightPath = () => <svg
 >
   <path
     d="M2 489L2.00002 2.00001"
-    stroke="#00D2FF"
-    strokeWidth={3}
+    stroke="currentColor"
+    strokeWidth={strokeWidth || 3}
     strokeLinecap="round"
-    strokeDasharray="5 10"
+    strokeDasharray={strokeDasharray || "5 10"}
   />
 </svg>

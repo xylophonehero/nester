@@ -1,8 +1,7 @@
 import React from 'react'
 import { Container } from '@/components/general'
 import tw, { styled } from "twin.macro"
-import
-{
+import {
   FigureDetailed,
   ColumnCard,
   RoundPathFigures,
@@ -10,7 +9,7 @@ import
   RiskCard,
   FigureCard,
   FlickityCarousel,
-  Card,
+  LinkCard,
   CardDetailed,
 } from '@/components/misc'
 
@@ -26,23 +25,20 @@ const ComponentWrapper = styled.div(({ layout }) => [
 ])
 
 
-const FigureDetailedGrid = ({ data, forceLayout, sectionId }) =>
-{
+const FigureDetailedGrid = ({ data, forceLayout, sectionId }) => {
   const layout = forceLayout || data.layout
 
   return (
     <Container data={data} tw="max-w-7xl py-16 laptop:py-32" sectionId={sectionId}>
       <ComponentWrapper layout={layout}>
-        {data.figures.map((figure, index) =>
-        {
-          switch (layout)
-          {
+        {data.figures.map((figure, index) => {
+          switch (layout) {
             case "row":
-              return <FigureDetailed key={figure.id} figure={figure} />
+              return <FigureDetailed key={figure.id} figure={figure} index={index} />
             case "card_row":
-              return <FigureCard key={figure.id} figure={figure} />
+              return <FigureCard key={figure.id} figure={figure} index={index} />
             case "column_card":
-              return <ColumnCard key={figure.id} card={figure} first={index === 0} />
+              return <ColumnCard key={figure.id} card={figure} first={index === 0} index={index} />
             case "round_path":
               return <RoundPathFigures key={figure.id} figure={figure} index={index} />
             case "straight_path":
@@ -50,16 +46,16 @@ const FigureDetailedGrid = ({ data, forceLayout, sectionId }) =>
             case "risk_cards":
               return <RiskCard key={figure.id} card={figure} index={index} />
             case "link_cards":
-              return <Card key={figure.id} card={figure} />
+              return <LinkCard key={figure.id} card={figure} index={index} />
             case "card_detailed":
-              return <CardDetailed key={figure.id} card={figure} />
+              return <CardDetailed key={figure.id} card={figure} index={index} />
             default:
               return <p>Not created yet</p>
 
           }
         })}
       </ComponentWrapper>
-      {["row", "risk_cards", "straight_path", "column_card", "card_row", "link_cards", "card_detailed"].includes(layout) && <FlickityCarousel items={data.figures} layout={layout} />}
+      {[ "row", "risk_cards", "straight_path", "column_card", "card_row", "link_cards", "card_detailed" ].includes(layout) && <FlickityCarousel items={data.figures} layout={layout} />}
     </Container>
   )
 }

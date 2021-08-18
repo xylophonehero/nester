@@ -1,12 +1,11 @@
-import
-{
+import {
   BlockQuote,
   Blog,
-  CardGrid,
+  // CardGrid,
   CheckCardColumn,
   CtaBlock,
   FigureDetailedGrid,
-  FigureGrid,
+  // FigureGrid,
   FinanceCardGrid,
   Hero,
   ImageText,
@@ -18,18 +17,16 @@ import
   AnnaxTable,
 } from "@/components/sections"
 
-const DynamicComponent = ({ section, sectionId }) =>
-{
-  switch (section.__component)
-  {
+const DynamicComponent = ({ section, sectionId }) => {
+  switch (section.__component) {
     case "section.hero":
       return <Hero data={section} sectionId={sectionId} />
     case "section.image-text":
       return <ImageText data={section} sectionId={sectionId} />
-    case "section.figure-grid":
-      return <FigureGrid data={section} sectionId={sectionId} />
-    case "section.card-grid":
-      return <CardGrid data={section} sectionId={sectionId} />
+    // case "section.figure-grid":
+    //   return <FigureGrid data={section} sectionId={sectionId} />
+    // case "section.card-grid":
+    //   return <CardGrid data={section} sectionId={sectionId} />
     case "section.cta-block":
       return <CtaBlock data={section} sectionId={sectionId} />
     case "section.card-detailed-grid":

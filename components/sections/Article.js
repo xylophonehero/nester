@@ -17,10 +17,8 @@ const ClausesWrapper = styled.div(({ noClauses }) => [
   noClauses && tw`ml-8`
 ])
 
-const Article = ({ data, sectionId }) =>
-{
-  return <Container tw="max-w-6xl py-24" data={data} sectionId={sectionId}>
-    {/* <H1>{data.title}</H1> */}
+const Article = ({ data, sectionId }) => {
+  return <Container tw="max-w-6xl py-24" data={data} sectionId={sectionId} noAnimation>
     <div>
       {data.sections.map((section, sectionIndex) => <div key={section.id}>
         <H3 tw="my-8">{`${sectionIndex + 1}. ${section.title}`}</H3>

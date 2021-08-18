@@ -3,6 +3,7 @@ import { StrapiImage } from '@/components/general'
 import { H3 } from '@/components/typography'
 import tw, { styled } from "twin.macro"
 import { LeftToRightLine, RightToLeftLine } from 'assets'
+import { useInView } from 'react-intersection-observer'
 
 const Title = styled(H3)(({ backgroundColor }) => [
   tw`laptop:whitespace-pre-line`,
@@ -16,21 +17,46 @@ const Text = styled.p(({ backgroundColor }) => [
   backgroundColor === "navy" && tw`text-gray-1`,
 ])
 
-const StraightPathFigures = ({ figure, index, backgroundColor }) =>
-{
+const AnimationWrapper = styled.div(({ inView }) => [
+  tw`transform opacity-100 mx-auto (transition duration-500)`,
+  !inView && tw`scale-90 translate-y-48 opacity-0`
+])
+
+const PathAnimationWrapper = styled.div(({ inView, backgroundColor }) => [
+  backgroundColor === "white" && tw`text-white`,
+  backgroundColor === "navy" && tw`text-navy`,
+  {
+    "path": {
+      "strokeDashoffset": inView ? "272" : "0",
+      "transition": "stroke-dashoffset 300ms ease-in",
+    }
+  }
+])
+
+const StraightPathFigures = ({ figure, index, backgroundColor, isCarousel }) => {
+  const [ ref, inView ] = useInView({
+    rootMargin: "-200px 0px",
+    triggerOnce: true
+  })
   return (<div tw="odd:self-start even:self-end">
     {index !== 0 && <div tw="hidden laptop:block">
       {index % 2 === 0 ?
-        <div tw="ml-64">
+        <div tw="ml-64 relative text-purple">
           <RightToLeftLine />
+          <PathAnimationWrapper inView={isCarousel || inView} backgroundColor={backgroundColor} tw="absolute top-0">
+            <RightToLeftLine strokeDasharray="272" strokeWidth={8} />
+          </PathAnimationWrapper>
         </div>
         :
-        <div tw="-ml-8">
+        <div tw="-ml-8 relative text-purple">
           <LeftToRightLine />
+          <PathAnimationWrapper inView={isCarousel || inView} backgroundColor={backgroundColor} tw="absolute top-0">
+            <LeftToRightLine strokeDasharray="272" strokeWidth={8} />
+          </PathAnimationWrapper>
         </div>
       }
     </div>}
-    <div tw=" width[300px] laptop:(width[600px] flex-row mx-0) mb-0 flex flex-col  mx-auto">
+    <AnimationWrapper ref={ref} inView={isCarousel || inView} tw=" width[300px] laptop:(width[600px] flex-row mx-0) mb-0 flex flex-col  mx-auto z-10 relative">
       <div tw="flex-shrink-0 flex justify-center laptop:block">
         <StrapiImage image={figure.image} />
       </div>
@@ -39,7 +65,7 @@ const StraightPathFigures = ({ figure, index, backgroundColor }) =>
         <Title backgroundColor={backgroundColor}>{figure.title}</Title>
         <Text backgroundColor={backgroundColor}>{figure.description}</Text>
       </div>
-    </div>
+    </AnimationWrapper>
   </div>
   )
 }

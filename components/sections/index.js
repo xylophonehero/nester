@@ -1,11 +1,11 @@
 import BlockQuote from "./BlockQuote";
 import Blog from "./Blog";
 import CardDetailedGrid from "./CardDetailedGrid"
-import CardGrid from "./CardGrid"
+// import CardGrid from "./CardGrid"
 import CheckCardColumn from "./CheckCardColumn";
 import CtaBlock from "./CtaBlock"
 import FigureDetailedGrid from "./FigureDetailedGrid"
-import FigureGrid from "./FigureGrid"
+// import FigureGrid from "./FigureGrid"
 import FinanceCardGrid from "./FinanceCardGrid"
 import Hero from "./Hero"
 import ImageText from "./ImageText"
@@ -16,16 +16,15 @@ import Table from "./Table"
 import Article from "./Article";
 import AnnaxTable from "./AnnaxTable";
 
-export
-{
+export {
   BlockQuote,
   Blog,
   CardDetailedGrid,
-  CardGrid,
+  // CardGrid,
   CheckCardColumn,
   CtaBlock,
   FigureDetailedGrid,
-  FigureGrid,
+  // FigureGrid,
   FinanceCardGrid,
   Hero,
   ImageText,

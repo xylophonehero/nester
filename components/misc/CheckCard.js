@@ -1,24 +1,52 @@
-/* eslint-disable react/display-name */
 import { ApprovalBlue, LongStraightPath } from "assets"
 import { BsChevronRight } from "react-icons/bs"
-import "twin.macro"
 import { Link, Markdown, StrapiImage } from "@/components/general"
 import { H3 } from "@/components/typography"
+import { useInView } from "react-intersection-observer"
+import styled from "styled-components"
+import tw from "twin.macro"
 
-const CheckCard = ({ card, first }) =>
-{
+const ApprovalWrapper = styled.div(({ inView }) => [
+  tw`transform opacity-100 (transition duration-500 ease-in-out delay-300)`,
+  !inView && tw`scale-50 opacity-0`,
+])
+
+const CardWrapper = styled.div(({ inView }) => [
+  tw`transform opacity-100 (transition duration-500 ease-in-out delay-300)`,
+  !inView && tw`translate-x-1/2 opacity-0`,
+])
+
+const PathWrapper = styled.div(({ inView }) => [
+  tw`absolute bottom-full left[30px] `,
+  {
+    "path": {
+      "strokeDashoffset": inView ? "491" : "0px",
+      "transition": "stroke-dashoffset 300ms ease-in",
+    }
+  }
+])
+
+const CheckCard = ({ card, first, isCarousel }) => {
+  const [ ref, inView ] = useInView({
+    rootMargin: "-200px 0px",
+    triggerOnce: true
+  })
+
   return (
 
-    <div tw="flex w-full justify-center ">
+    <div ref={ref} tw="flex w-full justify-center ">
       <div tw="hidden laptop:flex items-center flex-1 w-full relative">
-        {!first && <div tw="absolute bottom[calc(70%)] left[42px] ">
+        {!first && <div tw="absolute bottom[calc(70%)] left[42px] text-blue">
           <LongStraightPath />
         </div>}
-        <div tw="my-8">
+        {!first && <PathWrapper tw="absolute bottom[calc(70%)] left[42px] text-white" inView={inView}>
+          <LongStraightPath strokeDasharray="491" strokeWidth={8} />
+        </PathWrapper>}
+        <ApprovalWrapper inView={isCarousel || inView} tw="my-8">
           <ApprovalBlue />
-        </div>
+        </ApprovalWrapper>
       </div>
-      <div tw="bg-white rounded-2.5xl relative max-width[714px] laptop:flex-shrink-0 px-8 py-12 border-4 border-blue shadow-check-card">
+      <CardWrapper inView={isCarousel || inView} tw="bg-white rounded-2.5xl relative max-width[714px] laptop:flex-shrink-0 px-8 py-12 border-4 border-blue shadow-check-card">
         <div tw="flex flex-col tablet:(flex-row space-x-8 pl-8) mb-8">
           <div tw="flex flex-col flex-1 items-center tablet:items-start">
             <StrapiImage image={card.image} />
@@ -35,7 +63,7 @@ const CheckCard = ({ card, first }) =>
         <Link link={card.link} tw="uppercase text-blue text-center tablet:(pl-8 text-left) text-18">
           Learn more<BsChevronRight tw="inline ml-2" />
         </Link >
-      </div>
+      </CardWrapper>
       <div tw="hidden laptop:block flex-1 w-full" />
     </div>
   )

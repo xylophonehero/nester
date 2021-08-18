@@ -1,4 +1,4 @@
-export const LeftToRightCurve = () => <svg
+export const LeftToRightCurve = ({ strokeDasharray, strokeWidth }) => <svg
   width={239}
   height={191}
   viewBox="0 0 239 191"
@@ -6,11 +6,11 @@ export const LeftToRightCurve = () => <svg
   xmlns="http://www.w3.org/2000/svg"
 >
   <path
-    d="M2 2C64.1264 3.39552 198.103 42.7492 237 189"
-    stroke="#00D2FF"
-    strokeWidth={3}
+    d="M237 189C198.103 42.7492 64.1264 3.39552 2 2"
+    stroke="currentColor"
+    strokeWidth={strokeWidth || 3}
     strokeLinecap="round"
     strokeLinejoin="round"
-    strokeDasharray="5 10"
+    strokeDasharray={strokeDasharray || "5 10"}
   />
 </svg>
