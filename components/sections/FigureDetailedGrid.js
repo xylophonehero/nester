@@ -55,7 +55,7 @@ const FigureDetailedGrid = ({ data, forceLayout, sectionId }) => {
           }
         })}
       </ComponentWrapper>
-      {[ "row", "risk_cards", "straight_path", "column_card", "card_row", "link_cards", "card_detailed" ].includes(layout) && <FlickityCarousel items={data.figures} layout={layout} />}
+      {[ "row", "risk_cards", "straight_path", "column_card", "card_row", "link_cards", "card_detailed" ].includes(layout) && <FlickityCarousel items={data.figures} layout={layout} backgroundColor={data.background_color} />}
     </Container>
   )
 }

@@ -1,4 +1,4 @@
-import useAnimation from '@/context/AnimationContext'
+import { useAnimation } from 'context'
 import styled from 'styled-components'
 import tw from 'twin.macro'
 

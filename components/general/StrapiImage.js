@@ -3,7 +3,7 @@ import NextImage from "next/image"
 
 const StrapiImage = ({ image, layout, layoutStyle, ...rest }) =>
 {
-  const thumbnail = image.formats.thumbnail?.url
+  const thumbnail = image.formats?.thumbnail?.url
 
   return (
     <NextImage

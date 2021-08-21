@@ -56,7 +56,7 @@ const StraightPathFigures = ({ figure, index, backgroundColor, isCarousel }) => 
         </div>
       }
     </div>}
-    <AnimationWrapper ref={ref} inView={isCarousel || inView} tw=" width[300px] laptop:(width[600px] flex-row mx-0) mb-0 flex flex-col  mx-auto z-10 relative">
+    <AnimationWrapper ref={ref} inView={isCarousel || inView} tw=" width[300px] laptop:(width[700px] flex-row mx-0 space-x-4)  mb-0 flex flex-col  mx-auto z-10 relative">
       <div tw="flex-shrink-0 flex justify-center laptop:block">
         <StrapiImage image={figure.image} />
       </div>

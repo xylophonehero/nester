@@ -1,7 +1,7 @@
 import tw from "twin.macro"
 import { Container, StrapiImage, Button, Markdown, Link } from "@/components/general"
 import { FooterText } from "@/components/typography"
-import footer from "data/footer.json"
+import footer from "../../public/footer.json"
 import { useEffect, useState } from "react"
 import { FaTimes } from "react-icons/fa"
 import { StyledButton } from "../general/Button"

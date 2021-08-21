@@ -4,7 +4,7 @@ import { Fragment, useEffect, useRef, useState } from "react"
 import tw, { styled } from "twin.macro"
 import NextLink from "next/link"
 import { getId } from "utils"
-import header from "data/header.json"
+import header from "../../public/header.json"
 import { Dialog, Transition } from "@headlessui/react"
 import MobileDropdown from "./MobileDropdown"
 
@@ -43,15 +43,13 @@ const OpenMenuButton = styled.button(({ isOpen }) => [
 ])
 
 
-const MobileMenu = () =>
-{
+const MobileMenu = () => {
   let scrollWidth = 0
   if (typeof window !== "undefined") scrollWidth = window.innerWidth - document.body.offsetWidth
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeMenuIndex, setActiveMenuIndex] = useState(-1)
   const initialRef = useRef(null)
-  useEffect(() =>
-  {
+  useEffect(() => {
     if (!mobileMenuOpen) setActiveMenuIndex(-1)
   }, [mobileMenuOpen])
   return (
@@ -87,10 +85,8 @@ const MobileMenu = () =>
                 <div tw="h-full flex flex-col bg-purple shadow-xl ">
                   <div tw="my-6 relative flex-1 px-4">
                     <TextWrapper open={mobileMenuOpen}>
-                      {header.menu.map((item, index) =>
-                      {
-                        switch (item.__component)
-                        {
+                      {header.menu.map((item, index) => {
+                        switch (item.__component) {
                           case "misc.dropdown":
                             return <MobileDropdown
                               key={getId(item)}

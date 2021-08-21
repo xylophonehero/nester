@@ -4,7 +4,7 @@ import { convertBrackets } from 'utils/convertBrackets'
 import { Body, H1, H2 } from '@/components/typography'
 import { Button } from "@/components/general"
 import { useInView } from 'react-intersection-observer'
-import { AnimationProvider } from '@/context/AnimationContext'
+import { AnimationProvider } from 'context'
 
 const Wrapper = styled.section(({ backgroundColor, removeMargin }) => [
   tw`px-4 tablet:px-6`,

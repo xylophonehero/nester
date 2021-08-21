@@ -23,10 +23,8 @@ export const AnimationProvider = ({ children, noAnimation, ...rest }) => {
   </AnimationContext.Provider>
 }
 
-const useAnimation = () => {
+export const useAnimation = () => {
   const context = useContext(AnimationContext)
   if (!context) throw new Error("Only call useAnimation withtin an AnimationProvider")
   return context
 }
-
-export default useAnimation

@@ -1,11 +1,10 @@
 import { Markdown, StrapiImage } from "@/components/general"
 import { H1, H4 } from "@/components/typography"
-import blogs from "data/blogs.json"
+import { STRAPI_API_ENDPOINT } from "lib/constants"
 
 import "twin.macro"
 
-const BlogPage = ({ data }) =>
-{
+const BlogPage = ({ data }) => {
   return (
     <div tw="px-4 tablet:px-6">
       <div tw="max-w-4xl mx-auto my-20">
@@ -32,18 +31,10 @@ const BlogPage = ({ data }) =>
 export default BlogPage
 
 
-export async function getStaticPaths()
-{
-  let data
-  if (process.env.FORCE_LOCAL === "true")
-  {
-    data = blogs
-  } else
-  {
-    const res = await fetch("http://localhost:1337/blogs")
-    data = await res.json()
-    // fs.writeFileSync("data/blogs.json", JSON.stringify(data))
-  }
+export async function getStaticPaths() {
+  const res = await fetch(`${STRAPI_API_ENDPOINT}blogs`)
+  const data = await res.json()
+
   const paths = data.map((blog) => ({ params: { slug: blog.slug } }))
   return {
     paths: paths,
@@ -51,18 +42,10 @@ export async function getStaticPaths()
   }
 }
 
-export async function getStaticProps({ params })
-{
-  let data
+export async function getStaticProps({ params }) {
   const slug = params?.slug ? params.slug[0] : "home"
-  if (process.env.FORCE_LOCAL === "true")
-  {
-    data = blogs.filter((blog) => blog.slug === slug)
-  } else
-  {
-    const res = await fetch(`http://localhost:1337/blogs?slug=${slug}`)
-    data = await res.json()
-  }
+  const res = await fetch(`${STRAPI_API_ENDPOINT}blogs?slug=${slug}`)
+  const data = await res.json()
   return {
     props: { data: data[0] },
   }

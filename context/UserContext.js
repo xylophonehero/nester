@@ -5,7 +5,7 @@ const PERMITTED_DOMAIN = "https://app.nestertest.com"
 
 const UserContext = createContext(null)
 
-const UserContextProvider = ({ children }) =>
+export const UserContextProvider = ({ children }) =>
 {
   const [user, setUser] = useState(null)
   const ref = useRef()
@@ -77,5 +77,3 @@ export const useUserContext = () =>
   if (!ctx) throw new Error("Can't find UserContext provider")
   return ctx
 }
-
-export default UserContextProvider

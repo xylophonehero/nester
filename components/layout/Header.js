@@ -1,6 +1,6 @@
 import tw, { styled } from "twin.macro"
 import { StrapiImage, Link, Button } from "@/components/general"
-import header from "data/header.json"
+import header from "../../public/header.json"
 import { getId } from "utils"
 import NextLink from "next/link"
 import { FaChevronDown, FaUserAlt } from "react-icons/fa"

@@ -23,7 +23,7 @@ const FlickityContainer = styled.div(({ layoutStyle }) => [
   layoutStyle === "circle_figures" && tw`mb-12`
 ])
 
-const FlickityCarousel = ({ items, layout }) => {
+const FlickityCarousel = ({ items, layout, backgroundColor = "" }) => {
   return (
     <FlickityContainer layoutStyle={layout}>
       <Flickity
@@ -48,7 +48,7 @@ const FlickityCarousel = ({ items, layout }) => {
               </div>
             case "straight_path":
               return <div key={item.id} tw="w-full px-4">
-                <StraightPathFigures figure={item} index={index} isCarousel />
+                <StraightPathFigures figure={item} index={index} backgroundColor={backgroundColor} isCarousel />
               </div>
             case "risk_cards":
               return <div key={item.id} tw="w-full px-4">
