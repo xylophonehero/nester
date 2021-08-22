@@ -43,8 +43,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const slug = params?.slug ? params.slug[0] : "home"
-  const res = await fetch(`${STRAPI_API_ENDPOINT}blogs?slug=${slug}`)
+  const res = await fetch(`${STRAPI_API_ENDPOINT}blogs?slug=${params.slug}`)
   const data = await res.json()
   return {
     props: { data: data[0] },
