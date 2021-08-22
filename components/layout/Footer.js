@@ -9,8 +9,8 @@ import { StyledButton } from "../general/Button"
 const Column = tw.div`laptop:(pl-6) border-white border-opacity-60 flex flex-col justify-center font-bold`
 
 const Footer = () => {
-  const [ showRiskBanner, setShowRiskBanner ] = useState(false)
-  const [ showCookieBanner, setShowCookieBanner ] = useState(false)
+  const [showRiskBanner, setShowRiskBanner] = useState(false)
+  const [showCookieBanner, setShowCookieBanner] = useState(false)
 
   const handleCloseCookieBanner = () => {
     setShowCookieBanner(false)
@@ -31,7 +31,7 @@ const Footer = () => {
 
   return (
 
-    <footer tw="bg-navy w-full pt-20 pb-4 tablet:pb-44 laptop:pb-36 relative z-30">
+    <footer tw="bg-navy w-full pt-20 pb-4 relative z-30">
       <Container noAnimation>
         <div tw="bg-navy max-width[1200px] mx-auto">
           <div tw="flex flex-col space-y-8 laptop:(divide-x space-x-6 flex-row space-y-0) ">
@@ -55,10 +55,16 @@ const Footer = () => {
             </Column>
           </div>
           <FooterText tw="hidden laptop:block text-white text-opacity-60 mt-3.5 text-14">{footer.copywright}</FooterText>
+          {!showRiskBanner ? <div tw="text-white font-bold text-14 pt-4">
+            <Markdown text={footer.bottom_text} components={{ p: FooterText }} />
+          </div>
+            :
+            <div tw="laptop:pb-36" />
+          }
         </div>
       </Container>
       {showRiskBanner && <div tw="relative pt-8 laptop:(fixed pt-0) bottom-0 bg-navy bg-opacity-80 w-full z-40 px-4 tablet:px-6">
-        <div tw="text-white font-bold text-14 py-2  w-full max-width[1200px] mx-auto">
+        <div tw="text-white font-bold text-14 py-2  w-full max-width[1200px] mx-auto pr-4">
           <Markdown text={footer.bottom_text} components={{ p: FooterText }} />
         </div>
         <button tw="absolute top-4 right-4 text-white text-21" onClick={handleCloseRiskBanner}>
