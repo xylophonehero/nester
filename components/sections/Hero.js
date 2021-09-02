@@ -19,7 +19,7 @@ const TextWrapper = styled.div(({ layout, inView }) => [
 
 const BackgroundImage = styled.div(({ layout }) => [
   tw`absolute inset-0`,
-  layout === "center" && tw`opacity-40`,
+  layout === "center" && tw`opacity-100`,
   layout === "left_with_clip" && tw`max-height[60vh] -mt-12 laptop:(max-height[100vh] mt-0)`,
   {
     "img": layout === "center" ? tw`object-center` : tw`object-position[90%] laptop:object-position[24%]`
@@ -57,7 +57,11 @@ const Hero = ({ data, sectionId }) =>
   return (
     <Wrapper id={sectionId} layout={data.layout}>
       {data.background_image && <BackgroundImage layout={data.layout}  >
-        <StrapiImage image={data.background_image} layout="fill" objectFit="cover" priority quality={100} />
+        <StrapiImage image={{
+          url: "https://a.storyblok.com/f/113080/5760x3240/7e63ae5d58/img_20210728_100756.jpg",
+          alternativeText: "blank"
+        }} layout="fill" objectFit="cover" priority quality={100} />
+        {/* <StrapiImage image={data.background_image} layout="fill" objectFit="cover" priority quality={100} /> */}
         <div tw="absolute bottom-0 w-full">
           <Fade layout={data.layout} />
         </div>
