@@ -57,6 +57,7 @@ const Hero = ({ data, sectionId }) =>
   return (
     <Wrapper id={sectionId} layout={data.layout}>
       {data.background_image && <BackgroundImage layout={data.layout}  >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={data.background_image.url} alt="image" tw="object-cover h-full w-full" loading="eager" />
         {/* <StrapiImage image={data.background_image} layout="fill" objectFit="cover" priority quality={100} /> */}
         <div tw="absolute bottom-0 w-full">
