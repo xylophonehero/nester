@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { ServerStyleSheet } from 'styled-components'
 import { IMAGE_ENDPOINT } from 'lib/constants'
 
 class MyDocument extends Document {
