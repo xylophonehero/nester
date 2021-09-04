@@ -57,8 +57,7 @@ const Hero = ({ data, sectionId }) =>
   return (
     <Wrapper id={sectionId} layout={data.layout}>
       {data.background_image && <BackgroundImage layout={data.layout}  >
-        {/* <StrapiImage image={image} layout="fill" objectFit="cover" priority quality={100} /> */}
-        <StrapiImage image={data.background_image} layout="fill" objectFit="cover" />
+        <StrapiImage image={data.background_image} layout="fill" objectFit="cover" priority />
         <div tw="absolute bottom-0 w-full">
           <Fade layout={data.layout} />
         </div>

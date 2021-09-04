@@ -1,7 +1,6 @@
 import React from 'react'
 import NextImage from "next/image"
-
-const imageEndpoint = process.env.NEXT_PUBLIC_CLOUDFRONT_ENDPOINT || "https://nester-strapi-dev.s3.eu-west-1.amazonaws.com/"
+import { IMAGE_ENDPOINT } from 'lib/constants'
 
 const StrapiImage = ({ image, layout, layoutStyle, ...rest }) =>
 {
@@ -12,13 +11,13 @@ const StrapiImage = ({ image, layout, layoutStyle, ...rest }) =>
 
   return (
     <NextImage
-      src={`${imageEndpoint}${hash}${ext}`}
+      src={`${IMAGE_ENDPOINT}${hash}${ext}`}
       alt={image.alternativeText}
       layout={layout}
       width={layout ? null : image.width}
       height={layout ? null : image.height}
       placeholder={thumbnail ? "blur" : "empty"}
-      {...(thumbnail && {blurDataURL: `${imageEndpoint}${thumbnail.hash}${thumbnail.ext}`})}
+      {...(thumbnail && {blurDataURL: `${IMAGE_ENDPOINT}${thumbnail.hash}${thumbnail.ext}`})}
       {...rest}
     />
   )

@@ -6,6 +6,7 @@ import { GlobalStyles as MacroStyles } from "twin.macro"
 import { UserContextProvider } from 'context'
 import { useEffect } from 'react'
 
+
 function MyApp({ Component, pageProps })
 {
   const slug = pageProps.data?.slug
