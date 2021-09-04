@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "a.storyblok.com", "nester-strapi-dev.s3.eu-west-1.amazonaws.com"],
+    domains: ["localhost", "a.storyblok.com", "nester-strapi-dev.s3.eu-west-1.amazonaws.com", "d3pn6k1zz30voy.cloudfront.net"],
   },
   async rewrites()
   {

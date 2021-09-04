@@ -58,7 +58,7 @@ const Hero = ({ data, sectionId }) =>
     <Wrapper id={sectionId} layout={data.layout}>
       {data.background_image && <BackgroundImage layout={data.layout}  >
         <StrapiImage image={{
-          url: "https://a.storyblok.com/f/113080/5760x3240/7e63ae5d58/img_20210728_100756.jpg",
+          url: "https://d3pn6k1zz30voy.cloudfront.net/Group_425_1_5_9e6cf54c5a.png",
           alternativeText: "blank"
         }} layout="fill" objectFit="cover" priority quality={100} />
         {/* <StrapiImage image={data.background_image} layout="fill" objectFit="cover" priority quality={100} /> */}
