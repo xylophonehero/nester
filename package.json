@@ -15,6 +15,7 @@
     "@netlify/plugin-nextjs": "^3.7.1",
     "@react-pdf/renderer": "^2.0.18",
     "flickity": "^2.2.2",
+    "html2pdf.js": "^0.10.1",
     "iframe-resizer-react": "^1.1.0",
     "jspdf": "^2.3.1",
     "next": "11.0.1",
