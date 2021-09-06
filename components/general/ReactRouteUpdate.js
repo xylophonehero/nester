@@ -4,12 +4,13 @@ import { useHistory } from 'react-router-dom'
 
 const ReactRouteUpdate = () =>
 {
-  const { asPath } = useRouter()
+  const router = useRouter()
   const history = useHistory()
   useEffect(() =>
   {
-    history.push(asPath)
-  }, [asPath, history])
+    console.log({router})
+    history.replace(router.asPath)
+  }, [router, history])
 
   return null
 }
