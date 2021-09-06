@@ -7,6 +7,7 @@ import { FaChevronDown, FaUserAlt } from "react-icons/fa"
 import { MobileMenu, DropdownMenu } from "@/components/layout"
 import { useUserContext } from "context"
 import { useRouter } from "next/router"
+import { Link as ReactLink } from "react-router-dom"
 
 const userLinks = [
   { text: "Dashboard", link: { type: "internal", url: "/dashboard" }, showFor: "Investor,Borrower" },
@@ -33,7 +34,7 @@ const DropdownMenuText = styled.p(({ active }) => [
 const Header = () =>
 {
   const { user } = useUserContext()
-  const { asPath: currentPath } = useRouter()
+  const { asPath: currentPath, route } = useRouter()
   return (
     <div tw="sticky top-0 flex px-5 laptop:(px-20 h-20) desktop:px-24 items-center bg-purple max-height[60px] desktop:(max-height[80px]) shadow-header z-50">
       <NextLink href="/" passHref>
@@ -43,8 +44,15 @@ const Header = () =>
       </NextLink>
       <div tw="flex-1" />
       <nav tw="hidden desktop:flex flex-row items-center h-full">
-        <NextLink href="/about">About</NextLink>
-        <NextLink href="/test">Test</NextLink>
+        {route === "/react" ? <div tw="space-x-2">
+          <ReactLink to="/about">About</ReactLink>
+          <ReactLink to="/test">Test</ReactLink>
+        </div>
+        :
+        <div tw="space-x-2">
+          <NextLink href="/about">About</NextLink>
+          <NextLink href="/test">Test</NextLink>
+        </div>}
         {header.menu.map((item) =>
         {
           switch (item.__component)

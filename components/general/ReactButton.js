@@ -1,15 +1,15 @@
 import { useHistory } from "react-router-dom";
 
-const ReactButton = () => {
+const ReactButton = ({page}) => {
   let history = useHistory();
 
   function handleClick() {
-    history.push("/test");
+    history.push("/" + page);
   }
 
   return (
     <button type="button" onClick={handleClick}>
-      To test page React Router
+      To {page} page - React Router
     </button>
   );
 }

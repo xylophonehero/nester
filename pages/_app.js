@@ -5,11 +5,14 @@ import { GlobalStyles as MacroStyles } from "twin.macro"
 
 import { UserContextProvider } from 'context'
 import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 
 function MyApp({ Component, pageProps })
 {
   const slug = pageProps.data?.slug
+
+  const router = useRouter()
 
   useEffect(() =>
   {
@@ -32,7 +35,7 @@ function MyApp({ Component, pageProps })
   }, [slug])
 
   return <UserContextProvider>
-    <Layout>
+    <Layout noRender={router.route === "/react"}>
       <MacroStyles />
       <GlobalStyles />
       <Component {...pageProps} />

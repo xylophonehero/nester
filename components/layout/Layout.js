@@ -1,7 +1,11 @@
 import { Header, Footer } from "@/components/layout"
 
-const Layout = ({ children }) =>
+const Layout = ({ children, noRender }) =>
 {
+  if (noRender) return <main>
+    {children}
+  </main>
+
   return (
     <div tw="flex flex-col min-h-screen">
       <Header />
